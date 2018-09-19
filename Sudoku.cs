@@ -112,9 +112,9 @@ namespace Sudoko_18_09_19
             int[] numbersInCol = new int[9];
             for (int i = 0; i < 9; i++)
             {
-                numbersInCol[i] = board[i, col ];
+                numbersInCol[i] = board[i, col];
             }
-       
+
             return numbersInCol;
         }
 
@@ -123,28 +123,54 @@ namespace Sudoko_18_09_19
             // Beräkna vilket block
             //Hämta siffrorna i blocket rad för rad
             //Hannibal lol
-            row = (row < 3) ? 0 : (row < 6) ? 3 : 6;
-            col = (col < 3) ? 0 : (col < 6) ? 3 : 6;
-            int[] numbersInBlock = new int[9];
+            int[] numbersinblock = new int[9];
+            row = (row < 3) ? 0 : ((row < 6) ? 3 : 6);
+            col = (col / 3) * 3;
             int count = 0;
+
             for (int i = row; i < row + 3; i++)
             {
                 for (int j = col; j < col + 3; j++)
                 {
-                    numbersInBlock[count] = board[i, j];
+                    numbersinblock[count] = board[i, j];
                     count++;
                 }
             }
 
-            return numbersInBlock;
+            return numbersinblock;
 
 
         }
 
-        private int[] FindPossibleNumbers()
+        public int[] FindPossibleNumbers(int row, int col)
         {
             //Hitta möjliga tal för cell utifrån rad, kolumn och block
-            throw new NotImplementedException();
+            //TODO: hitta sifrån från rad, kolumn och blok
+            List<int> result = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            int[] numbersInRow = GetNumbersInRow(row);
+            int[] numbersInCol = GetNumbersInCol(col);
+            int[] numbersInBlock = GetNumbersInBlock(row, col);
+
+
+            foreach (var number in numbersInCol)
+            {
+                if (result.Contains(number)) result.Remove(number);
+            }
+
+            foreach (var number in numbersInRow)
+            {
+                if (result.Contains(number)) result.Remove(number);
+            }
+            foreach (var number in numbersInBlock)
+            {
+                if (result.Contains(number)) result.Remove(number);
+            }
+
+            return result.ToArray();
+            //int[] _col = GetNumbersInCol(col);
+            //int[] _row = GetNumbersInRow(row);
+            //int[] _block = GetNumbersInBlock(row, col);
         }
 
         private bool IsComplete()
@@ -152,11 +178,43 @@ namespace Sudoko_18_09_19
             // Loopa igenom alla celler
             //      Om (cell är tom) inte färdig
             //
-            throw new NotImplementedException();
+            for (int row = 0; row < 9; row++)
+            {
+                for (int col = 0; col < 9; col++)
+                {
+                    if (board[row, col] == 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public void solve()
         {
+            while (IsComplete())
+            {
+                for (int row = 0; row < 9; row++)
+                {
+                    for (int col = 0; col < 9; col++)
+                    {
+                        if (board[row, col] == 0)
+                        {
+                            int[] possibleNumbers = FindPossibleNumbers(row, col);
+                            if (possibleNumbers.Length == 1)
+                            {
+                                board[row, col] = possibleNumbers[0];
+                            }
+                            else
+                            {
+                                board[row, col] = 0;
+                            }
+                        }
+
+                    }
+                }
+            }
             //Loopa tills färdig ( inga tomma rutor)
             //{
             //   Loopa igenom alla celler(for-loop nestade rad och kolumn)
