@@ -195,6 +195,7 @@ namespace Sudoko_18_09_19
         {
             while (IsComplete())
             {
+                bool unsolvable = true;
                 for (int row = 0; row < 9; row++)
                 {
                     for (int col = 0; col < 9; col++)
@@ -208,11 +209,18 @@ namespace Sudoko_18_09_19
                             }
                             else
                             {
-                                board[row, col] = 0;
+                                unsolvable = false;
                             }
                         }
 
                     }
+                }
+                if (unsolvable == false)
+                {
+                    Console.WriteLine("Det finns ingen lösning :( ");
+                    Console.ReadLine();
+                    break;
+
                 }
             }
             //Loopa tills färdig ( inga tomma rutor)
