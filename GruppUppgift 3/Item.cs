@@ -6,10 +6,24 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class Item
+    abstract class Item
     {
         public string Name { get; set; }
         public string Description { get; set; }
+
+        public Item()
+        {
+            
+        }
+        
+
+        public Item(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
+
+
 
         public virtual void UseItem()
         {

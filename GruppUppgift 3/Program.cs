@@ -21,6 +21,9 @@ namespace GruppUppgift_3
             // om man blir klar // finished ------------> win
             //       v
             // om inte klar, gå tillbaka till gameloop.
+
+            //Key key = new Key("Rusty key","Rusty");
+
         }
     }
 }
