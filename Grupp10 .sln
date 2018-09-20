@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoko-18-09-19", "Sudoko-18-09-19.csproj", "{041A0BF5-DBA7-400F-A036-7E381014FF8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoko-18-09-19", "Suduko\Sudoko-18-09-19.csproj", "{041A0BF5-DBA7-400F-A036-7E381014FF8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruppUppgift 3", "..\GruppUppgift 3\GruppUppgift 3.csproj", "{7D269560-CB39-44B6-AF6B-C36E822E9F33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruppUppgift 3", "GruppUppgift 3\GruppUppgift 3.csproj", "{7D269560-CB39-44B6-AF6B-C36E822E9F33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
