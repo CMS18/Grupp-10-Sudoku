@@ -10,10 +10,11 @@ namespace GruppUppgift_3
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public string Function { get; set; }
 
         public virtual void UseItem()
         {
-           ///heuehueheuhe   
+            ///heuehueheuhe   
         }
         public virtual void DropItem()
         {
