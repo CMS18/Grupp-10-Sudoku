@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class World
+    class Exit
     {
-         
+        public bool IsLocked { get; set; }
+        public Room LeadsTo { get; set; }
+        private int Id { get; set; }
+        
     }
 }

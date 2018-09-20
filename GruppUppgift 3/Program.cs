@@ -10,6 +10,17 @@ namespace GruppUppgift_3
     {
         static void Main(string[] args)
         {
+            // Skapa en karaktär ( Player )
+
+            // Game-loop
+            //       v
+            // skriver ut vad player ser
+            //       v
+            // skriv ett kommando ( rutiner ) 
+            //       v
+            // om man blir klar // finished ------------> win
+            //       v
+            // om inte klar, gå tillbaka till gameloop.
         }
     }
 }
