@@ -17,7 +17,7 @@ namespace GruppUppgift_3
         }
         public virtual void DropItem()
         {
-
+            // Ska droppas i rummet du är i
         }
     }
 }
