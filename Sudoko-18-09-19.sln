@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoko-18-09-19", "Sudoko-18-09-19.csproj", "{041A0BF5-DBA7-400F-A036-7E381014FF8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruppUppgift3-TextAdventure", "..\GruppUppgift3-TextAdventure\GruppUppgift3-TextAdventure.csproj", "{FAD18B9C-E971-483F-8AD1-DD92D3ED4262}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{041A0BF5-DBA7-400F-A036-7E381014FF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{041A0BF5-DBA7-400F-A036-7E381014FF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{041A0BF5-DBA7-400F-A036-7E381014FF8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FAD18B9C-E971-483F-8AD1-DD92D3ED4262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FAD18B9C-E971-483F-8AD1-DD92D3ED4262}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FAD18B9C-E971-483F-8AD1-DD92D3ED4262}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FAD18B9C-E971-483F-8AD1-DD92D3ED4262}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
