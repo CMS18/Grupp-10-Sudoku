@@ -193,11 +193,11 @@ namespace Sudoko_18_09_19
 
         public void solve()
         {
-            //bool unsolvable = true;
-            int tries = 0;
+            bool unsolvable;
+            
             while (IsComplete())
             {
-                
+                unsolvable = true;
                 for (int row = 0; row < 9; row++)
                 {
                     for (int col = 0; col < 9; col++)
@@ -208,19 +208,19 @@ namespace Sudoko_18_09_19
                             if (possibleNumbers.Length == 1)
                             {
                                 board[row, col] = possibleNumbers[0];
+                                unsolvable = false;
                             }
                             else
                             {
-                                tries++;
-                                if (tries > 500) {
-                                    Console.WriteLine("Hittar ingen lösning");
-                                    return;
-
-                                }
+                                board[row, col] = 0;
                             }
                         }
-
                     }
+                }
+                if (unsolvable == true)
+                {
+                    Console.WriteLine("Hittade ingen lösing :(");
+                    return;
                 }
                
             }
