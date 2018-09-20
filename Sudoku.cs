@@ -193,9 +193,11 @@ namespace Sudoko_18_09_19
 
         public void solve()
         {
+            //bool unsolvable = true;
+            int tries = 0;
             while (IsComplete())
             {
-                bool unsolvable = true;
+                
                 for (int row = 0; row < 9; row++)
                 {
                     for (int col = 0; col < 9; col++)
@@ -209,19 +211,18 @@ namespace Sudoko_18_09_19
                             }
                             else
                             {
-                                unsolvable = false;
+                                tries++;
+                                if (tries > 500) {
+                                    Console.WriteLine("Hittar ingen lösning");
+                                    return;
+
+                                }
                             }
                         }
 
                     }
                 }
-                if (unsolvable == false)
-                {
-                    Console.WriteLine("Det finns ingen lösning :( ");
-                    Console.ReadLine();
-                    break;
-
-                }
+               
             }
             //Loopa tills färdig ( inga tomma rutor)
             //{
