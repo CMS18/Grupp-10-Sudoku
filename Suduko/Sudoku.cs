@@ -9,7 +9,7 @@ namespace Sudoko_18_09_19
 {
     internal class Sudoku
     {
-        public int[,] board = new int[9, 9]; 
+        private int[,] board = new int[9, 9]; 
 
 
         public Sudoku(string board)
@@ -191,8 +191,10 @@ namespace Sudoko_18_09_19
             return false;
         }
 
-        public bool Solve(int[,] board)
+        public void Solve()
         {
+            PrintBoard();
+            Console.WriteLine();
             bool unsolvable;
             
             while (IsComplete())
@@ -219,13 +221,14 @@ namespace Sudoko_18_09_19
                 }
                 if (unsolvable == true)
                 {
-                    TheWolf(board);
+                    Console.WriteLine("Ingen lösning kunde hittas :(");
                     PrintBoard();
+                    return;
                 }
                
             }
             PrintBoard();
-            return true;
+            
             
             //Loopa tills färdig ( inga tomma rutor)
             //{
@@ -239,35 +242,43 @@ namespace Sudoko_18_09_19
             //         
         }
 
-        private void TheWolf(int[,] Board)
+        public bool GetTheWolf()
         {
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    if (Board[i,j] == 0)
+                    if (board[i,j] == 0)
                     {
-                        int[] possibleNumbers = FindPossibleNumbers(i, j);
-                        if (possibleNumbers.Length == 2)
-                        {
-                            Board[i, j] = possibleNumbers[0];
-                            if (Solve(Board))
-                            {
-                                board[i,j] = possibleNumbers[0];
-                            }
-                            else
-                            {
-                                board[i,j] = possibleNumbers[1];
-                            }
-                            
-                        }
+                        return TryNumbers(i, j, board);
                     }
                 }
             }
-            
+            return true;
         }
-
-
+        private bool TryNumbers (int row, int col, int[,]Sudoku)
+        {
+            List<int> PossibleNumbers = new List<int>();
+            for (int number = 1; number < 10; number++)
+            {
+                PossibleNumbers = FindPossibleNumbers(row, col).ToList();
+                if (PossibleNumbers.Contains(number))
+                {
+                    board[row, col] = number;
+                    if (GetTheWolf())
+                    {
+                        if (IsComplete())
+                        {
+                            PrintBoard();
+                            Console.WriteLine();
+                        }
+                        return true;
+                    }
+                }
+            }
+            board[row, col] = 0;
+            return false;
+        }
     }
 }
 
