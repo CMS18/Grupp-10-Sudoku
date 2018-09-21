@@ -8,9 +8,15 @@ namespace GruppUppgift_3
 {
     class Exit
     {
-        public bool IsLocked { get; set; }
+        public bool Locked { get; set; }
         public Room LeadsTo { get; set; }
-        private int Id { get; set; }
-        
+        private int DoorId { get; set; }
+
+        public Exit(bool locked, Room leadsTo, int doorId)
+        {
+            LeadsTo = leadsTo;
+            Locked = locked;
+            DoorId = doorId;
+        }
     }
 }
