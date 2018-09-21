@@ -18,20 +18,34 @@ namespace GruppUppgift_3
             player1.Name = Console.ReadLine();
 
             //skapa ett rum
-            Room room1 = new Room("Köket", "Det är vitt kakel, det finns en dörr norr om dig");
+            Room Köket= new Room("Köket", "Det är vitt kakel, det finns en dörr norr om dig, på golvet ligger en dammig nyckel");
             
             Room room2 = new Room("Vardagsrum","Mörkt och jävligt");
 
-            List<Exit> doorExits = new List<Exit>();
-            Exit exit1 = new Exit(false, room1, 1);
+            Key nyckel = new Key("Key", "Den ser dålig ut", null);
 
-            player1.CurrentPosition = room1;
-            Console.WriteLine(player1.CurrentPosition.Description);
-            string userInput = Console.ReadLine().ToLower();
-            if(userInput.Contains("norr"))
+            List<Exit> doorExits = new List<Exit>();
+            Exit exit1 = new Exit(false, Köket, 1);
+
+            player1.CurrentPosition = Köket;
+            while (player1.Alive)
             {
-                player1.CurrentPosition = room2;
-                Console.WriteLine($"Du är i {room2.Name},det är {room2.Description}");
+                Console.WriteLine(player1.CurrentPosition.Description);
+                string userInput = Console.ReadLine().ToLower();
+                if (userInput.Contains("norr"))
+                {
+                    player1.CurrentPosition = room2;
+                    Console.WriteLine($"Du är i {room2.Name},det är {room2.Description}");
+                }
+                else if (userInput.Contains("pick up") || userInput.Contains("Key"))
+                {
+                    player1.Inventory.Add(nyckel);
+                    Köket.roomItems.Remove(nyckel);
+                    Console.WriteLine(nyckel.Description);
+                }
+                
+
+                
             }
 
             //room2.Exits = doorExits;

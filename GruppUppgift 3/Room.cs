@@ -23,6 +23,5 @@ namespace GruppUppgift_3
            
             List<Exit> Ëxits = exits;
         }
-        
     }
 }

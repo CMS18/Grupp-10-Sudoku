@@ -9,7 +9,7 @@ namespace Sudoko_18_09_19
 {
     internal class Sudoku
     {
-        private int[,] board = new int[9, 9];
+        public int[,] board = new int[9, 9]; 
 
 
         public Sudoku(string board)
@@ -191,7 +191,7 @@ namespace Sudoko_18_09_19
             return false;
         }
 
-        public void solve()
+        public bool Solve(int[,] board)
         {
             bool unsolvable;
             
@@ -210,6 +210,11 @@ namespace Sudoko_18_09_19
                                 board[row, col] = possibleNumbers[0];
                                 unsolvable = false;
                             }
+                            //else if (possibleNumbers.Length == 2)
+                            //{
+                            //    board[row, col] = TheWolf(board, possibleNumbers, row, col);
+                                
+                            //}
                             else
                             {
                                 board[row, col] = 0;
@@ -220,10 +225,13 @@ namespace Sudoko_18_09_19
                 if (unsolvable == true)
                 {
                     Console.WriteLine("Hittade ingen lösing :(");
-                    return;
+                    return false;
                 }
                
             }
+            PrintBoard();
+            return true;
+            
             //Loopa tills färdig ( inga tomma rutor)
             //{
             //   Loopa igenom alla celler(for-loop nestade rad och kolumn)
@@ -236,7 +244,25 @@ namespace Sudoko_18_09_19
             //         
         }
 
+        //private int TheWolf(int[,] Board, int[] PossibleNumbers, int row, int col)
+        //{
 
+        //    Board[row, col] = PossibleNumbers[0];
+        //    if (Solve(Board)== true)
+        //    {
+        //        return PossibleNumbers[0];
+        //    }
+        //    else
+        //    {
+        //        Board[row, col] = PossibleNumbers[1];
+        //        if (Solve(Board))
+        //        {
+        //            return PossibleNumbers[1];
+        //        }
+                
+        //    }
+        //    return 0;
+        //}
 
 
     }

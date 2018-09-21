@@ -17,12 +17,9 @@ namespace Sudoko_18_09_19
 
 
 
-            game.PrintBoard();
+
             Console.WriteLine();
-            game.solve();
-            game.PrintBoard();
-
-
+            game.Solve(game.board);
 
 
         }
