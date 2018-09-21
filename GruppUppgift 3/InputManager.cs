@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    public class World
+    class InputManager
     {
-        //Room room = new Room("Room");
-         
     }
 }
