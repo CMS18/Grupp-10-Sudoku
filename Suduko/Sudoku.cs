@@ -210,11 +210,6 @@ namespace Sudoko_18_09_19
                                 board[row, col] = possibleNumbers[0];
                                 unsolvable = false;
                             }
-                            //else if (possibleNumbers.Length == 2)
-                            //{
-                            //    board[row, col] = TheWolf(board, possibleNumbers, row, col);
-                                
-                            //}
                             else
                             {
                                 board[row, col] = 0;
@@ -224,8 +219,8 @@ namespace Sudoko_18_09_19
                 }
                 if (unsolvable == true)
                 {
-                    Console.WriteLine("Hittade ingen lösing :(");
-                    return false;
+                    TheWolf(board);
+                    PrintBoard();
                 }
                
             }
@@ -244,25 +239,33 @@ namespace Sudoko_18_09_19
             //         
         }
 
-        //private int TheWolf(int[,] Board, int[] PossibleNumbers, int row, int col)
-        //{
-
-        //    Board[row, col] = PossibleNumbers[0];
-        //    if (Solve(Board)== true)
-        //    {
-        //        return PossibleNumbers[0];
-        //    }
-        //    else
-        //    {
-        //        Board[row, col] = PossibleNumbers[1];
-        //        if (Solve(Board))
-        //        {
-        //            return PossibleNumbers[1];
-        //        }
-                
-        //    }
-        //    return 0;
-        //}
+        private void TheWolf(int[,] Board)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (Board[i,j] == 0)
+                    {
+                        int[] possibleNumbers = FindPossibleNumbers(i, j);
+                        if (possibleNumbers.Length == 2)
+                        {
+                            Board[i, j] = possibleNumbers[0];
+                            if (Solve(Board))
+                            {
+                                board[i,j] = possibleNumbers[0];
+                            }
+                            else
+                            {
+                                board[i,j] = possibleNumbers[1];
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            
+        }
 
 
     }
