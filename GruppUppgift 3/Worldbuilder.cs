@@ -6,42 +6,39 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    public class Worldbuilder
+    class Worldbuilder
     {
         public void NewGame()
         {
             // Skapa en karaktär ( Player )
-            Player player1 = new Player();
-
-            Console.Write("Give your character a name: ");
-            player1.Name = Console.ReadLine();
-
+            Player player = new Player();
+            player.CreateCharacter();
 
             //skapa ett rum
-            Room Kitchen = new Room("Kitchen", "The flooring is white marble, to the north of you there is a" +
-                " vintage-looking mahogany door. On the floor infront of you there is a old key.");
+            Room Kitchen = new Room();
+            Kitchen.ShowKitchen();
 
-
-            Room room2 = new Room("Living room", "Dark and fuckery");
+            Room LivingRoom = new Room();
+            LivingRoom.ShowLivingRoom();
 
             Key key1 = new Key("Key", "Rusty key that seems to unlock... something", null);
 
             List<Exit> doorExits = new List<Exit>();
             Exit exit1 = new Exit(false, Kitchen, 1);
 
-            player1.CurrentPosition = Kitchen;
-            while (player1.Alive)
+            player.CurrentPosition = Kitchen;
+            while (player.Alive)
             {
-                Console.WriteLine(player1.CurrentPosition.Description);
+                Console.WriteLine(player.CurrentPosition.Description);
                 string userInput = Console.ReadLine().ToLower();
                 if (userInput.Contains("north"))
                 {
-                    player1.CurrentPosition = room2;
-                    Console.WriteLine($"You are in {room2.Name}, {room2.Description}");
+                    player.CurrentPosition = LivingRoom;
+                    Console.WriteLine($"You are in {LivingRoom.Name}, {LivingRoom.Description}");
                 }
                 else if (userInput.Contains("pick up") || userInput.Contains("Key"))
                 {
-                    player1.Inventory.Add(key1);
+                    player.Inventory.Add(key1);
                     Kitchen.roomItems.Remove(key1);
                     Console.WriteLine(key1.Description);
                 }
@@ -51,6 +48,8 @@ namespace GruppUppgift_3
             }
 
         }
+
+       
 
     }
 }
