@@ -6,20 +6,32 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class Key : Item
+    public class Key : Item
     {
-        private string Name { get; set; }
-        private string Description { get; set; }
-        private Exit OpenExits { get; set; }
+        Item keys = new Item();
+       
+        public Exit OpenExits { get; set; }
+        public bool OpensExits { get; set; }
 
-        public Key(string name, string description, Exit openExits)
+       
+
+        public Key(string name, string description, string function, bool opensExists) : base(name, description, function)
         {
-            Name = name;
-            Description = description;
-            OpenExits = openExits;
+
+            OpensExits = opensExists;
         }
 
+    
+
+
+        }
         
+        
+        
+    
+
+
+
 
     }
-}
+

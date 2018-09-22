@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    abstract class Item
+    public class Item
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -18,10 +18,11 @@ namespace GruppUppgift_3
         }
         
 
-        public Item(string name, string description)
+        public Item(string name, string description, string function)
         {
             Name = name;
             Description = description;
+            Function = function;
         }
 
 

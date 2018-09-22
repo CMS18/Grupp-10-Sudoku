@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class Exit
+    public class Exit
     {
         public bool Locked { get; set; }
         public Room LeadsTo { get; set; }

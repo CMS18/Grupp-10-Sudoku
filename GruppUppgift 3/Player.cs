@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,48 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class Player
+    public class Player
     {
         public string Name { get; set; }
         public List<Item> Inventory { get; set; }
         public bool Alive { get; set; } = true;
         public Room CurrentPosition { get; set; }
-
+        Room currentPosition = new Room();
         public void CreateCharacter()
         {
+            Console.WriteLine("*******************************");          
+            Console.WriteLine("*Welcome to the Text Adventure*");            
+            Console.WriteLine("*******************************");
+            Console.WriteLine();
             Console.Write("Give your character a name: ");
-            string player = Console.ReadLine();
+            string name = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine($"{name}, are you ready? y/n");
+            string svar = Console.ReadLine().ToLower();
+            if (svar == "y")
+            {
+                Console.Clear();
+                Console.WriteLine("Be careful, be silent and dont make any mistakes.");
+              
+                
+                Console.ReadLine();
+            }
+            else if (svar == "n")
+            {
+                for (int i = 0; i < 50000; i++)
+                {
+                    Console.WriteLine("Coward");
+                }
+
+                
+            }
+           
+            
+
+            
+
+            
+           
         }
         public void PickUpItem(Item item)
         {

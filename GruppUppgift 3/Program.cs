@@ -7,10 +7,11 @@ using System.Xml.Linq;
 
 namespace GruppUppgift_3
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            
             Worldbuilder w = new Worldbuilder();
             w.NewGame();
 

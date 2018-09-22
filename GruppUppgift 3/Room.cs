@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class Room
+    public class Room
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -28,12 +28,7 @@ namespace GruppUppgift_3
             List<Exit> Ëxits = exits;
         }
 
-        public void ShowKitchen()
-        {
-            Name = "Kitchen";
-            Description = "The flooring is white marble, to the north of you there is a" +
-                          " vintage-looking mahogany door. On the floor infront of you there is a old key.";
-        }
+       
 
         public void ShowLivingRoom()
         {

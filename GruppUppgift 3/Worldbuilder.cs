@@ -6,41 +6,55 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class Worldbuilder
+    public class Worldbuilder
     {
         public void NewGame()
         {
+            /*
+                Jag skulle vilja ha en class där vi bara skriver historien, skulle vara enklare att strukturera upp
+
+            */
+
             // Skapa en karaktär ( Player )
             Player player = new Player();
             player.CreateCharacter();
 
             //skapa ett rum
-            Room Kitchen = new Room();
-            Kitchen.ShowKitchen();
+                        
+            Room livingRoom = new Room("Living room", "Dark and fuckery");
+            Room kitchen = new Room("Kitchen", "The flooring is white marble, to the north of you there is a" +
+            " vintage-looking mahogany door. On the floor infront of you there is a old key.");
 
-            Room LivingRoom = new Room();
-            LivingRoom.ShowLivingRoom();
-
-            Key key1 = new Key("Key", "Rusty key that seems to unlock... something", null);
+            //Skapar nycklar
+            Key key1 = new Key("Rusty key", "Opens nothing", "Useless", false);
+            Key key2 = new Key("Golden key", "Shiny", "Opens chest in the oven", true);
+           
 
             List<Exit> doorExits = new List<Exit>();
-            Exit exit1 = new Exit(false, Kitchen, 1);
+            Exit exit1 = new Exit(false, kitchen, 1);
 
-            player.CurrentPosition = Kitchen;
+            //TODO: Skriva ut en current position som alltid står högst upp på Consolen, 
+            //TODO: Få lite struktur på worldbuilder, ser väldigt stökigt ut.
+            
+            player.CurrentPosition = kitchen;
+            
+            Console.WriteLine(player.CurrentPosition.Description);
             while (player.Alive)
             {
-                Console.WriteLine(player.CurrentPosition.Description);
+                
                 string userInput = Console.ReadLine().ToLower();
-                if (userInput.Contains("north"))
+                if (userInput == "north" || userInput == "norr")
                 {
-                    player.CurrentPosition = LivingRoom;
-                    Console.WriteLine($"You are in {LivingRoom.Name}, {LivingRoom.Description}");
+                    player.CurrentPosition = livingRoom;
+                    Console.WriteLine($"You are in {livingRoom.Name}, {livingRoom.Description}");
                 }
-                else if (userInput.Contains("pick up") || userInput.Contains("Key"))
+                if (userInput == "pick up" || userInput == "key")
                 {
+                    Console.WriteLine("Keytype :" +key1.Name+ "\n" +"Description: "+ key1.Description + "\n" + "Function: " + key1.Function );
                     player.Inventory.Add(key1);
-                    Kitchen.roomItems.Remove(key1);
-                    Console.WriteLine(key1.Description);
+                    kitchen.roomItems.Remove(key1);
+                    break;
+
                 }
 
 

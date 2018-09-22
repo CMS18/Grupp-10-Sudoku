@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    class InputManager
+    public class InputManager
     {
+        // Skriva ut vad som händer när man skriver ett kommando
+        /*
+       
+
+      
+
+       */
+
     }
 }
