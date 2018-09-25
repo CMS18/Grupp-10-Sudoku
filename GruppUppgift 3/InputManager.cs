@@ -8,13 +8,6 @@ namespace GruppUppgift_3
 {
     public class InputManager
     {
-        // Skriva ut vad som händer när man skriver ett kommando
-        /*
-       
-
-      
-
-       */
-
+        
     }
 }

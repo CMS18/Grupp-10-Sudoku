@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    public class Exit
+    public class Door
     {
         public bool Locked { get; set; }
-        public Room LeadsTo { get; set; }
+        public List<Room> Leadsto { get; set; }   //en dörr leder ju till 2 rum så har en lista på dem två
         private int DoorId { get; set; }
 
-        public Exit(bool locked, Room leadsTo, int doorId)
+        public Door(bool locked, int doorId, Room Room1, Room Room2)
         {
-            LeadsTo = leadsTo;
+            Leadsto.Add(Room1);
+            Leadsto.Add(Room2);
+
             Locked = locked;
             DoorId = doorId;
         }

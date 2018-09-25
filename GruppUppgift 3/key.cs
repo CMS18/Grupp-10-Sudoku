@@ -10,7 +10,7 @@ namespace GruppUppgift_3
     {
         Item keys = new Item();
        
-        public Exit OpenExits { get; set; }
+        public Door OpenExits { get; set; }
         public bool OpensExits { get; set; }
 
        

@@ -11,7 +11,7 @@ namespace GruppUppgift_3
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Item> roomItems = new List<Item>();
-        public List<Exit> Exits { get; set; }
+        public List<Door> Exits { get; set; }
 
         public Room()
         {
@@ -22,12 +22,15 @@ namespace GruppUppgift_3
             Name = name;
             Description = description;
         }
-        public Room(List<Exit> exits)
+        //public Room(List<Exit> exits)
+        //{
+
+        //    List<Exit> Exits = exits;
+        //}
+        public void AddExit (Door exit)
         {
-
-            List<Exit> Ëxits = exits;
+            Exits.Add(exit);
         }
-
        
 
         public void ShowLivingRoom()
