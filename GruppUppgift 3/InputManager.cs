@@ -8,7 +8,8 @@ namespace GruppUppgift_3
 {
     public class InputManager
     {
-        private static List<string> KeyWords = new List<string> { "get", "use", "north", "west", "south", "east", "inventory" };
+        private static List<string> KeyWords = new List<string> { "get", "use", "north", "west",
+            "south", "east", "inventory", "drop", "description" };
 
         public static void GetUserInput(string input)
         {
