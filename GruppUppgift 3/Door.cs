@@ -10,9 +10,10 @@ namespace GruppUppgift_3
     {
         public bool Locked { get; set; }
         public List<Room> Leadsto { get; set; } = new List<Room>();   //en dörr leder ju till 2 rum så har en lista på dem två
-        private int DoorId { get; set; }
+        public int DoorId { get; set; }
+        public string Position { get; set; }
 
-        public Door(bool locked, int doorId, Room Room1, Room Room2)
+        public Door(bool locked, int doorId, Room Room1, Room Room2, string position )
         {
             
             Leadsto.Add(Room1);
@@ -20,6 +21,7 @@ namespace GruppUppgift_3
 
             Locked = locked;
             DoorId = doorId;
+            position = Position;
         }
     }
 }

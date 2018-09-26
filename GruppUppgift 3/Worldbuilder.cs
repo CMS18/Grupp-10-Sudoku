@@ -23,7 +23,7 @@ namespace GruppUppgift_3
 
             Player.ChangePosition(kitchen);
 
-            Door Door1 = new Door(false, 1, livingRoom, kitchen);                                                           //exits läggs till i rummen
+            Door Door1 = new Door(false, 1, livingRoom, kitchen, "north");                                                           //exits läggs till i rummen
             kitchen.AddExit(Door1);
             
             
