@@ -12,7 +12,7 @@ namespace GruppUppgift_3
         static void Main(string[] args)
         {
             
-            Worldbuilder w = new Worldbuilder();
+            Worldbuilder w = new Worldbuilder("pemis");
             w.NewGame();
 
             //room2.Exits = doorExits;

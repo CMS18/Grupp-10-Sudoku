@@ -11,10 +11,11 @@ namespace GruppUppgift_3
 
         public Player Player { get; set; }
         public List<Room> Rooms { get; set; }
+        public string Name { get; set; }
 
         public Worldbuilder(string name)
         {
-            Player.Name = name;
+            Name = name;
             
             Room livingRoom = new Room("Living room", "Dark and fuckery");
             Room kitchen = new Room("Kitchen", "The flooring is white marble, to the north of you there is a" +  //spelvärlden skapas upp när man skapar ett 
@@ -37,7 +38,14 @@ namespace GruppUppgift_3
 
         public void NewGame()
         {
-            
+            while (Player.Alive)
+            {
+                Console.WriteLine(Player.CurrentPosition.Description);
+                Console.WriteLine("Choose your next move: ");
+
+                InputManager.GetUserInput(Console.ReadLine());
+                
+            }
 
   
            
@@ -69,7 +77,7 @@ namespace GruppUppgift_3
 
                 //}
                 
-            }
+            
         } 
     }
 }

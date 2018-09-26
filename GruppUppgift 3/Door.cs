@@ -14,6 +14,7 @@ namespace GruppUppgift_3
 
         public Door(bool locked, int doorId, Room Room1, Room Room2)
         {
+            Leadsto = new List<Room>();
             Leadsto.Add(Room1);
             Leadsto.Add(Room2);
 
