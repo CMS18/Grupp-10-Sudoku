@@ -9,8 +9,8 @@ namespace GruppUppgift_3
     public class Worldbuilder
     {
 
-        public Player Player { get; set; }
-        public List<Room> Rooms { get; set; }
+        public Player Player { get; set; } = new Player();
+        public List<Room> Rooms { get; set; } = new List<Room>();
         public string Name { get; set; }
 
         public Worldbuilder(string name)
@@ -20,6 +20,8 @@ namespace GruppUppgift_3
             Room livingRoom = new Room("Living room", "Dark and fuckery");
             Room kitchen = new Room("Kitchen", "The flooring is white marble, to the north of you there is a" +  //spelvärlden skapas upp när man skapar ett 
             " vintage-looking mahogany door. On the floor infront of you there is a old key.");                  //Worldbuilderobjekt
+
+            Player.ChangePosition(kitchen);
 
             Door Door1 = new Door(false, 1, livingRoom, kitchen);                                                           //exits läggs till i rummen
             kitchen.AddExit(Door1);

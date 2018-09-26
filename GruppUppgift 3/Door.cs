@@ -9,12 +9,12 @@ namespace GruppUppgift_3
     public class Door
     {
         public bool Locked { get; set; }
-        public List<Room> Leadsto { get; set; }   //en dörr leder ju till 2 rum så har en lista på dem två
+        public List<Room> Leadsto { get; set; } = new List<Room>();   //en dörr leder ju till 2 rum så har en lista på dem två
         private int DoorId { get; set; }
 
         public Door(bool locked, int doorId, Room Room1, Room Room2)
         {
-            Leadsto = new List<Room>();
+            
             Leadsto.Add(Room1);
             Leadsto.Add(Room2);
 

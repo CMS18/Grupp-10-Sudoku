@@ -10,38 +10,43 @@ namespace GruppUppgift_3
     public class Player
     {
         public string Name { get; set; }
-        public List<Item> Inventory { get; set; }
+        public List<Item> Inventory { get; set; } = new List<Item>();
         public static bool Alive { get; set; } = true;
         public Room CurrentPosition { get; set; }
-        Room currentPosition = new Room();
-        public void CreateCharacter()
+
+
+        public void ChangePosition (Room NewRoom)
         {
-            Console.WriteLine("*******************************");          
-            Console.WriteLine("*Welcome to the Text Adventure*");            
-            Console.WriteLine("*******************************");
-            Console.WriteLine();
-            Console.Write("Give your character a name: ");
-            string name = Console.ReadLine();
-            Console.WriteLine();
-            Console.WriteLine($"{name}, are you ready? y/n");
-            string svar = Console.ReadLine().ToLower();
-            if (svar == "y")
-            {
-                Console.Clear();
-                Console.WriteLine("Be careful, be silent and dont make any mistakes.");
+            CurrentPosition = NewRoom;
+        }
+        //public void CreateCharacter()
+        //{
+        //    Console.WriteLine("*******************************");          
+        //    Console.WriteLine("*Welcome to the Text Adventure*");            
+        //    Console.WriteLine("*******************************");
+        //    Console.WriteLine();
+        //    Console.Write("Give your character a name: ");
+        //    string name = Console.ReadLine();
+        //    Console.WriteLine();
+        //    Console.WriteLine($"{name}, are you ready? y/n");
+        //    string svar = Console.ReadLine().ToLower();
+        //    if (svar == "y")
+        //    {
+        //        Console.Clear();
+        //        Console.WriteLine("Be careful, be silent and dont make any mistakes.");
               
                 
-                Console.ReadLine();
-            }
-            else if (svar == "n")
-            {
-                for (int i = 0; i < 50000; i++)
-                {
-                    Console.WriteLine("Coward");
-                }
+        //        Console.ReadLine();
+        //    }
+        //    else if (svar == "n")
+        //    {
+        //        for (int i = 0; i < 50000; i++)
+        //        {
+        //            Console.WriteLine("Coward");
+        //        }
 
                 
-            }
+        //    }
            
             
 
@@ -49,20 +54,20 @@ namespace GruppUppgift_3
 
             
            
-        }
-        public void PickUpItem(Item item)
-        {
-            Inventory.Add(item);//typ
-        }
-        public void DropItem(Item item)
-        {
-            Inventory.Remove(item);
-            //Add item to roominventory typ 
-        }
-        public void UseItem()
-        {
+        //}
+        //public void PickUpItem(Item item)
+        //{
+        //    Inventory.Add(item);//typ
+        //}
+        //public void DropItem(Item item)
+        //{
+        //    Inventory.Remove(item);
+        //    //Add item to roominventory typ 
+        //}
+        //public void UseItem()
+        //{
 
-        }
+        //}
 
     }
 }
