@@ -28,7 +28,7 @@ namespace GruppUppgift_3
 
         private static void CheckForGoCommands(string input)
         {
-            if (input == "east")
+            if (input == "east" && )
             {
 
             }
