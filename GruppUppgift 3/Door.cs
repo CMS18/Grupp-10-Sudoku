@@ -21,7 +21,7 @@ namespace GruppUppgift_3
 
             Locked = locked;
             DoorId = doorId;
-            position = Position;
+            Position = position;
         }
     }
 }
