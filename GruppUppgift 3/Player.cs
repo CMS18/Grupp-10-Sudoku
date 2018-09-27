@@ -19,6 +19,10 @@ namespace GruppUppgift_3
         {
             CurrentPosition = NewRoom;
         }
+        public string GetCurrentPosition(Player player1)
+        {
+            return player1.CurrentPosition.Name;
+        }
         //public void CreateCharacter()
         //{
         //    Console.WriteLine("*******************************");          
