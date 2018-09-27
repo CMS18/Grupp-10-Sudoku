@@ -29,14 +29,13 @@ namespace GruppUppgift_3
             " to the west there is a painting of some old women in a rocking chair");
         public Room bathRoom = new Room("Bath room",
             "To the north there is a toilet dressed in leather");
-        
+
 
         public Worldbuilder(string name)
         {
 
             Name = name;
 
-            
             player1.ChangePosition(kitchen);
             //kitchendoors
             Door Door1 = new Door(false, 1, livingRoom, "north");                                                           //exits läggs till i rummen
@@ -54,18 +53,29 @@ namespace GruppUppgift_3
             //Bathroom doors
             Door Door6 = new Door(false, 6, livingRoom, "east");
             bathRoom.AddExit(Door6);
-            //  Buraue with items
+
+            //  Buraue with items (kitchen)
             Item remote = new Item("Tv-remote", "black", "Turns on the tv");
             Item flashlight = new Item("Flashlight", "tiny", "Turn on for light");
-            Bureau buraue = new Bureau("Old buraue", "Top-shelf contain items");
-            buraue.bureauItems.Add(remote);
-            buraue.bureauItems.Add(flashlight);
+            Container buraue = new Container("Old buraue", "Top-shelf contain items");
+            buraue.containerItems.Add(remote);
+            buraue.containerItems.Add(flashlight);
             kitchen.AddItem(buraue);
 
-            Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false); //items läggs i rummen
-            kitchen.roomItems.Add(RustyKey);
-            Key GoldenKey = new Key("Golden key", "Shiny", "Opens chest in the oven", true);
-            livingRoom.roomItems.Add(GoldenKey);
+            // Fridge with clue (kitchen)
+            Item clueSheet = new Item("clue sheet", "check for new clues in the bathroom", "readme");
+            Container fridge = new Container("Fridge", " contains clue sheet");
+            fridge.containerItems.Add(clueSheet);
+            kitchen.AddItem(fridge);
+
+            //Dresser with items (Bed room)
+            Key GoldenKey = new Key("golden key", "Shiny", "opens chest in the oven", true);
+            Container dresser = new Container("dresser", "contains golden key");
+            dresser.containerItems.Add(GoldenKey);
+            bedRoom.roomItems.Add(GoldenKey);
+
+            Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false);
+
 
         }
 

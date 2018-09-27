@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GruppUppgift_3
 {
-    public class Bureau:Item
+    public class Container:Item
     {
-        public string Description { get; set; }
         public string Name { get; set; }
-        public List<Item> bureauItems { get; set; } = new List<Item>();
+        public string Description { get; set; }
+        public List<Item> containerItems { get; set; } = new List<Item>();
 
-        public Bureau(string description,string name)
+        public Container(string name,string description)
         {
             Name = name;
             Description = description;
