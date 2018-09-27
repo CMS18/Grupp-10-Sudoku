@@ -11,10 +11,25 @@ namespace GruppUppgift_3
 
         public Player player1 { get; set; } = new Player();       
         public string Name { get; set; }
-        public Room livingRoom = new Room("Living room", "Dark and fuckery");
-        public Room kitchen = new Room("Kitchen",
-                "The flooring is white marble, to the north of you there is a" + 
-                " vintage-looking mahogany door. On the floor infront of you there is a old key.");
+        public Room kitchen = new Room("Kitchen", 
+            "The flooring is white marble, to the east of you there is a stove and a fridge" +
+            "to the left, there is an old bureau, the top shelf is open " +
+            "to the north, there is a vintage-looking magahony door." ); 
+
+        public Room livingRoom = new Room("Living room",
+               "It is dark and freezing cold, " +
+               " you are standing on a rug, it feels like the cold comes from below the rug." +
+               " To the north of you there is a couch, a tv and a painting," +
+               "to the east there is a door, its slightly open." +
+               "To the west there is another door, it is closed, possibly locked.");
+
+        public Room bedRoom = new Room("Bed room",
+            "The floor is carpeted in a maroon-red color, to the north of you there is a bed," +
+            "to the east there is dresser, " +
+            " to the west there is a painting of some old women in a rocking chair");
+        public Room bathRoom = new Room("Bath room",
+            "To the north there is a toilet dressed in leather");
+        
 
         public Worldbuilder(string name)
         {
