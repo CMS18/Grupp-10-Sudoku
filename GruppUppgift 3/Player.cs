@@ -13,7 +13,7 @@ namespace GruppUppgift_3
         public List<Item> Inventory { get; set; } = new List<Item>();
         public bool Alive { get; set; } = true;
         public Room CurrentPosition { get; set; }
-
+        public bool exitMenu = true;
 
         public void ChangePosition (Room NewRoom)
         {
@@ -86,6 +86,27 @@ namespace GruppUppgift_3
         //{
 
         //}
+        public void helpMenu()
+        {
+            while (exitMenu)
+            {
 
+                Console.WriteLine("***COMMANDS***");
+                Console.WriteLine("go north");
+                Console.WriteLine("go west");
+                Console.WriteLine("go east");
+                Console.WriteLine("go south");
+                Console.WriteLine("take \"item\" ");
+                Console.WriteLine("drop \"item\" ");
+
+                Console.WriteLine("Exit menu: \"exit\"");
+                var svar = Console.ReadLine();
+                if (svar == "exit")
+                {
+                    exitMenu = false;
+                }
+            }
+
+        }
     }
 }

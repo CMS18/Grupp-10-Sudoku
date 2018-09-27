@@ -92,12 +92,18 @@ namespace GruppUppgift_3
                 Console.Write("Give your character a name: ");
                 player1.Name = Console.ReadLine();
                 Console.Title = "Kitchen";
-                Console.WriteLine($"Hi {player1.Name}! Welcome to the Text Adventure V1.02. To start the game," +
-                    $" type in \r\nSTART. To access the command menu, type in \r\nHELP. Enjoy!");
+                //Console.WriteLine($"Hi {player1.Name}! Welcome to the Text Adventure V1.02. To start the game," +
+                //    $" type in \r\nSTART. To access the command menu, type in \r\nHELP. Enjoy!");
 
                 while (player1.Alive)
                 {
-
+                    Console.WriteLine("Write help for command-menu");
+                    var help = Console.ReadLine();
+                    if (help == "help")
+                    {
+                        Console.Clear();
+                        player1.helpMenu();
+                    }
                     Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
