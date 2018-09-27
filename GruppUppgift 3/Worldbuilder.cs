@@ -77,11 +77,8 @@ namespace GruppUppgift_3
             Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
             kitchen.AddItem(RustyKey);
 
-            Key RustyKey = new Key("rustykey", "Opens nothing", "Useless", false); //items läggs i rummen
-            kitchen.roomItems.Add(RustyKey);
-            Key GoldenKey = new Key("goldenkey", "Shiny", "Opens chest in the oven", true);
-            livingRoom.roomItems.Add(GoldenKey);
-
+            
+          
         }
 
 
