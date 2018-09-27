@@ -9,7 +9,7 @@ namespace GruppUppgift_3
     public class Worldbuilder
     {
 
-        public Player player1 { get; set; } = new Player();       
+        public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
         public Room kitchen = new Room("Kitchen", 
             "The flooring is white marble, to the east of you there is a stove and a fridge" +
@@ -92,9 +92,12 @@ namespace GruppUppgift_3
                 Console.Write("Give your character a name: ");
                 player1.Name = Console.ReadLine();
                 Console.Title = "Kitchen";
+                Console.WriteLine($"Hi {player1.Name}! Welcome to the Text Adventure V1.02. To start the game," +
+                    $" type in \r\nSTART. To access the command menu, type in \r\nHELP. Enjoy!");
 
                 while (player1.Alive)
                 {
+
                     Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
@@ -105,7 +108,49 @@ namespace GruppUppgift_3
                     var command = InputManager.GetUserInput(Console.ReadLine());
                     DoStuff(command);
                 }
-            }
+
+
+                    //}
+
+                    //while (player1.Alive)
+                    //{
+                    //    if (player1.Alive && "start" == Console.ReadLine().ToLower())
+                    //    {
+                    //        Console.WriteLine(player1.CurrentPosition.Name);
+                    //        Console.WriteLine(player1.CurrentPosition.Description);
+                    //        Console.WriteLine($"Choose your next move : ");
+                    //        var command = InputManager.GetUserInput(Console.ReadLine());
+                    //        DoStuff(command);
+                    //        Console.WriteLine();
+
+                    //    }
+                    //    else if (player1.Alive && "help" == Console.ReadLine().ToLower())
+                    //    {
+                    //        Console.WriteLine($"Commands: \r\ngo \r\nsouth \r\nnorth \r\nwest \r\neast" +
+                    //        $" \r\nhelp \r\ntake \r\ndrop\r\ninventory");
+                    //        Console.WriteLine($"Choose your next move: ");
+                    //        var command = InputManager.GetUserInput(Console.ReadLine());
+                    //        DoStuff(command);
+
+
+                    //    }
+                    //    else if (player1.Alive)
+                    //    {
+                    //        Console.WriteLine(player1.CurrentPosition.Name);
+                    //        Console.WriteLine(player1.CurrentPosition.Description);
+                    //        Console.WriteLine($"Choose your next move : ");
+                    //        var command = InputManager.GetUserInput(Console.ReadLine());
+                    //        DoStuff(command);
+                    //    }
+                    //    else
+                    //    {
+                    //        Console.WriteLine("fel");
+                    //    }
+
+
+                    //}
+
+                }
         }
 
         private void DoStuff(string input)
@@ -188,6 +233,42 @@ namespace GruppUppgift_3
             }
         }
 
+                if (CheckForDoor(inputArray[1], out Room room))
+                {
+                    player1.ChangePosition(room);
+                    Console.Title = room.Name;
+                }
+                else
+                {
+                    
+                    Console.WriteLine("You cannot go there");
+                }
+            }
+            else if (inputArray[0]=="take")
+            {
+                bool SuccesfullItemPickup = false;
+                foreach (var item in player1.CurrentPosition.roomItems)
+                {
+                    if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
+                    {
+                        player1.Inventory.Add(item);
+                        player1.CurrentPosition.roomItems.Remove(item);
+                        Console.WriteLine(item.Name + " was added to your inventory.");
+                        SuccesfullItemPickup = true;
+                        break;
+                    }
+                    
+                }
+                if (SuccesfullItemPickup == false)
+                {
+                    Console.WriteLine("You cannot do that...");
+                }
+            }
+            else if (inputArray[0] == "inventory")
+            {
+                player1.CheckInventory();
+            }
+        }
         public bool CheckForDoor(string input, out Room room)
         {
             foreach (var item in player1.CurrentPosition.Exits)
@@ -196,7 +277,7 @@ namespace GruppUppgift_3
                 {
                     room = item.Leadsto;
                     return true;
-                    
+
                 }
             }
             room = null;

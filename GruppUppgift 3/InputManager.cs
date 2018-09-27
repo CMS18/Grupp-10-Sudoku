@@ -8,7 +8,7 @@ namespace GruppUppgift_3
 {
     public class InputManager
     {
-        private static List<string> KeyWords = new List<string> { "take", "use", "go", "inventory", "drop", "description" };
+        private static List<string> KeyWords = new List<string> { "take", "use", "go", "inventory", "drop", "description", "help" };
 
         public static string GetUserInput(string input)
         {
@@ -56,11 +56,23 @@ namespace GruppUppgift_3
                 output = CheckForGoCommands(inputarray[1]);
             }
             return inputarray[0] + " " + output;
+
+
+        }
+    private static string InputHelpList(string input)
+        {
+            if (input == "help")
+            {
+                Console.WriteLine($"Commands: \r\ngo \r\nsouth \r\nnorth \r\nwest \r\neast" +
+                    $" \r\nhelp \r\ntake \r\ndrop\r\n inventory");
+            }
+            return "Invalid command";
         }
 
-        private static string CheckForGoCommands(string input)
+
+    private static string CheckForGoCommands(string input)
         {
-            if (input == "east" || input == "west" || input == "south" || input == "north")
+            if (input == "east" || input == "west" || input == "south" || input == "north" )
             {
                 return input;
             }
