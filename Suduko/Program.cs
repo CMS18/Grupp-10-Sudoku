@@ -29,7 +29,7 @@ namespace Sudoko_18_09_19
 
             Sudoku2 Diabolical = new Sudoku2("000000000000003085001020000000507000004000100090000000500000073002010000000040009");
 
-            Diabolical.Solve();
+            MediumGame.Solve();
             
 
         }
