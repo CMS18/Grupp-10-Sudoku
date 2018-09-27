@@ -92,16 +92,19 @@ namespace GruppUppgift_3
                 Console.Write("Give your character a name: ");
                 player1.Name = Console.ReadLine();
                 Console.Title = "Kitchen";
-                //Console.WriteLine($"Hi {player1.Name}! Welcome to the Text Adventure V1.02. To start the game," +
-                //    $" type in \r\nSTART. To access the command menu, type in \r\nHELP. Enjoy!");
-
-                while (player1.Alive)
+                Console.WriteLine($"Hi {player1.Name}! \r\nWelcome to the Text Adventure V1.02." +
+                    $" Type in \r\nSTART to start your new adveture,\r\nEnjoy!");
+                var start = Console.ReadLine();
+                
+                while (player1.Alive && start == "start")
                 {
                     
                    
-                    Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\t\tHelp menu \"help\"");
+                    Console.WriteLine(player1.CurrentPosition.Name );
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
+                    Console.WriteLine("***");
+                    Console.WriteLine("If you're unsure about the commands, type in \"HELP\" to enter the command menu");
                     Console.WriteLine("***");
                     Console.Write("Choose your next move: ");
 
@@ -215,6 +218,7 @@ namespace GruppUppgift_3
             {
 
                 Console.WriteLine("You cannot go there");
+               
             }
         }
 
