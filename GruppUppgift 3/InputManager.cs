@@ -23,15 +23,19 @@ namespace GruppUppgift_3
             {
                 return CheckForGoCommands(inputarray);
             }
-            else if (inputarray[0]== "take")
+            else if (inputarray[0] == "take")
             {
-                return ArrayToString(inputarray);                
+                return ArrayToString(inputarray);
             }
             else if (inputarray[0] == "inventory")
             {
                 return ArrayToString(inputarray);
             }
             else if (inputarray[0] == "drop")
+            {
+                return ArrayToString(inputarray);
+            }
+            else if (inputarray[0] == "look")
             {
                 return ArrayToString(inputarray);
             }

@@ -167,7 +167,7 @@ namespace GruppUppgift_3
             {
                 MovePlayer(inputArray);
             }
-            else if (inputArray[0]=="take")
+            else if (inputArray[0] == "take")
             {
                 TakeItem(inputArray);
             }
@@ -175,12 +175,28 @@ namespace GruppUppgift_3
             {
                 player1.CheckInventory();
             }
-            else if (inputArray[0]== "drop")
+            else if (inputArray[0] == "drop")
             {
                 Dropitem(inputArray);
             }
+            else if (inputArray[0] == "look")
+            {
+                Console.WriteLine(player1.CurrentPosition.Description);
+            }
+            //else if (inputArray[0] == "inspect")
+            //{
+            //    InspectItem();
+            //}
             // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
         }
+
+        //private void InspectItem()
+        //{
+        //    foreach (var item in player1.Inventory)
+        //    {
+                
+        //    }
+        //}
 
         private void Dropitem(string[] inputArray)
         {
