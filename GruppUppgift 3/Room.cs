@@ -32,7 +32,7 @@ namespace GruppUppgift_3
         public void ShowLivingRoom()
         {
             Name = "Living room";
-            Description = "Dark and fuckery";
+            //Description = "Dark and fuckery";
 
         }
         public void AddItem(Item item)

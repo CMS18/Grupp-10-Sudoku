@@ -43,9 +43,7 @@ namespace GruppUppgift_3
             kitchen.AddExit(Door1);
             Door Door2 = new Door(false, 2, kitchen, "south");
             livingRoom.AddExit(Door2);
-            
-            
-
+           
             Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false); //items läggs i rummen
             kitchen.roomItems.Add(RustyKey);
             Key GoldenKey = new Key("Golden key", "Shiny", "Opens chest in the oven", true);
