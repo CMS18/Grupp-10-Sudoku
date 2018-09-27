@@ -24,8 +24,10 @@ namespace GruppUppgift_3
 
             player1.ChangePosition(kitchen);
 
-            Door Door1 = new Door(false, 1, livingRoom, kitchen, "north");                                                           //exits läggs till i rummen
+            Door Door1 = new Door(false, 1, livingRoom, "north");                                                           //exits läggs till i rummen
             kitchen.AddExit(Door1);
+            Door Door2 = new Door(false, 2, kitchen, "south");
+            livingRoom.AddExit(Door2);
             
             
 
@@ -89,6 +91,10 @@ namespace GruppUppgift_3
             if (input == "go north")
             {
                 player1.ChangePosition(Rooms[1]);
+            }
+            else if (input == "go south" && player1.CurrentPosition == livingRoom )
+            {
+
             }
         }
     }
