@@ -22,11 +22,7 @@ namespace GruppUppgift_3
             Name = name;
             Description = description;
         }
-        //public Room(List<Exit> exits)
-        //{
-
-        //    List<Exit> Exits = exits;
-        //}
+        
         public void AddExit (Door exit)
         {
             Exits.Add(exit);
@@ -38,6 +34,10 @@ namespace GruppUppgift_3
             Name = "Living room";
             Description = "Dark and fuckery";
 
+        }
+        public void AddItem(Item item)
+        {
+            roomItems.Add(item);
         }
     }
 }

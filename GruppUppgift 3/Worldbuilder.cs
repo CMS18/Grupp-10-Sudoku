@@ -9,21 +9,19 @@ namespace GruppUppgift_3
     public class Worldbuilder
     {
 
-        public Player player1 { get; set; } = new Player();
-        public List<Room> Rooms { get; set; } = new List<Room>();
+        public Player player1 { get; set; } = new Player();       
         public string Name { get; set; }
+        public Room livingRoom = new Room("Living room", "Dark and fuckery");
+        public Room kitchen = new Room("Kitchen",
+                "The flooring is white marble, to the north of you there is a" + 
+                " vintage-looking mahogany door. On the floor infront of you there is a old key.");
 
         public Worldbuilder(string name)
         {
 
             Name = name;
 
-            Room livingRoom = new Room("Living room", "Dark and fuckery");
-            Room kitchen = new Room("Kitchen",
-                "The flooring is white marble, to the north of you there is a" + //spelvärlden skapas upp när man skapar ett 
-                " vintage-looking mahogany door. On the floor infront of you there is a old key.");
-
-
+            
             player1.ChangePosition(kitchen);
 
             Door Door1 = new Door(false, 1, livingRoom, "north");                                                           //exits läggs till i rummen
@@ -38,8 +36,6 @@ namespace GruppUppgift_3
             Key GoldenKey = new Key("Golden key", "Shiny", "Opens chest in the oven", true);
             livingRoom.roomItems.Add(GoldenKey);
 
-            Rooms.Add(kitchen);
-            Rooms.Add(livingRoom);
         }
 
 
@@ -55,56 +51,25 @@ namespace GruppUppgift_3
 
                 while (player1.Alive)
                 {
+                    Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine($"Choose your next move : ");
 
                     var command = InputManager.GetUserInput(Console.ReadLine());
                     dostuff(command);
-
                 }
-
-
-
-
-
-
-
-                //TODO: Skriva ut en current position som alltid står högst upp på Consolen, 
-                //TODO: Få lite struktur på worldbuilder, ser väldigt stökigt ut.
-
-                //player.CurrentPosition = kitchen;
-
-                //Console.WriteLine(player.CurrentPosition.Description);
-                //while (player.Alive)
-                //{
-
-                //    string userInput = Console.ReadLine().ToLower();
-                //    if (userInput == "north" || userInput == "norr")
-                //    {
-                //        player.CurrentPosition = livingRoom;
-                //        Console.WriteLine($"You are in {livingRoom.Name}, {livingRoom.Description}");
-                //    }
-                //    if (userInput == "pick up" || userInput == "key")
-                //    {
-                //        Console.WriteLine("Keytype :" +key1.Name+ "\n" +"Description: "+ key1.Description + "\n" + "Function: " + key1.Function );
-                //        player.Inventory.Add(key1);
-                //        kitchen.roomItems.Remove(key1);
-                //        break;
-
-                //}
-
-
             }
+        }
 
         private void dostuff(string input)
         {
-            if (input == "go north")
+            if (input == "go north" && player1.GetCurrentPosition(player1) == "kitchen")
             {
-                player1.ChangePosition(Rooms[1]);
+                player1.ChangePosition(livingRoom);
             }
-            else if (input == "go south" && player1.CurrentPosition == livingRoom )
+            else if (input == "go south" && player1.GetCurrentPosition(player1) == "livingroom"  )
             {
-
+                player1.ChangePosition(kitchen);
             }
         }
     }
