@@ -54,6 +54,13 @@ namespace GruppUppgift_3
             //Bathroom doors
             Door Door6 = new Door(false, 6, livingRoom, "east");
             bathRoom.AddExit(Door6);
+            //  Buraue with items
+            Item remote = new Item("Tv-remote", "black", "Turns on the tv");
+            Item flashlight = new Item("Flashlight", "tiny", "Turn on for light");
+            Bureau buraue = new Bureau("Old buraue", "Top-shelf contain items");
+            buraue.bureauItems.Add(remote);
+            buraue.bureauItems.Add(flashlight);
+            kitchen.AddItem(buraue);
 
             Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false); //items läggs i rummen
             kitchen.roomItems.Add(RustyKey);
