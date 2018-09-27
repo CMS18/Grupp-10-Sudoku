@@ -97,14 +97,9 @@ namespace GruppUppgift_3
 
                 while (player1.Alive)
                 {
-                    Console.WriteLine("Write help for command-menu");
-                    var help = Console.ReadLine();
-                    if (help == "help")
-                    {
-                        Console.Clear();
-                        player1.helpMenu();
-                    }
-                    Console.WriteLine(player1.CurrentPosition.Name);
+                    
+                   
+                    Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\t\tHelp menu \"help\"");
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine("***");
@@ -163,6 +158,11 @@ namespace GruppUppgift_3
         {
             input.ToLower();
             var inputArray = input.Split(' ');
+            if (inputArray[0] == "help")
+            {
+                Console.Clear();
+                player1.helpMenu();
+            }
             if (inputArray[0] == "go")
             {
                 MovePlayer(inputArray);

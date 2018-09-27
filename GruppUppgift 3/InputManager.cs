@@ -15,6 +15,10 @@ namespace GruppUppgift_3
 
             input = input.ToLower();
             var inputarray = input.Split(' ');
+            if (inputarray[0] == "help")
+            {
+                return "help";
+            }
             if (inputarray[0] == "go")
             {
                 return CheckForGoCommands(inputarray);
