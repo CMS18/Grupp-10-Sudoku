@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bureau.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Item.cs" />
