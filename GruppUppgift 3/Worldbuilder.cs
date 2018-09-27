@@ -179,6 +179,7 @@ namespace GruppUppgift_3
             {
                 Dropitem(inputArray);
             }
+            // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
         }
 
         private void Dropitem(string[] inputArray)
