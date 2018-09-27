@@ -188,10 +188,11 @@ namespace GruppUppgift_3
             {
                 if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
                 {
-                    player1.Inventory.Remove(item);
                     player1.CurrentPosition.roomItems.Add(item);
+                    player1.Inventory.Remove(item);
                     Console.WriteLine("YOU THREW THE " + item.Name + " ON THE GROUND!");
                     success = true;
+                    break;
                 }
             }
             if (success == false)
