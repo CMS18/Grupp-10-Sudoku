@@ -230,44 +230,8 @@ namespace GruppUppgift_3
             if (SuccesfullItemPickup == false)
             {
                 Console.WriteLine("You cannot do that...");
-            }
-        }
+            }       
 
-                if (CheckForDoor(inputArray[1], out Room room))
-                {
-                    player1.ChangePosition(room);
-                    Console.Title = room.Name;
-                }
-                else
-                {
-                    
-                    Console.WriteLine("You cannot go there");
-                }
-            }
-            else if (inputArray[0]=="take")
-            {
-                bool SuccesfullItemPickup = false;
-                foreach (var item in player1.CurrentPosition.roomItems)
-                {
-                    if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
-                    {
-                        player1.Inventory.Add(item);
-                        player1.CurrentPosition.roomItems.Remove(item);
-                        Console.WriteLine(item.Name + " was added to your inventory.");
-                        SuccesfullItemPickup = true;
-                        break;
-                    }
-                    
-                }
-                if (SuccesfullItemPickup == false)
-                {
-                    Console.WriteLine("You cannot do that...");
-                }
-            }
-            else if (inputArray[0] == "inventory")
-            {
-                player1.CheckInventory();
-            }
         }
         public bool CheckForDoor(string input, out Room room)
         {
