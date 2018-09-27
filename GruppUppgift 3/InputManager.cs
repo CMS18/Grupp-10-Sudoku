@@ -15,8 +15,21 @@ namespace GruppUppgift_3
 
             input = input.ToLower();
             var inputarray = input.Split(' ');
+            if (inputarray[0] == "go")
+            {
+                return CheckForGoCommands(inputarray);
+            }
+            else if (inputarray[0]== "take")
+            {
+                return inputarray[0] + " " + inputarray[1];
+            }
+            return "hej";
+        }
+
+        private static string CheckForGoCommands(string[] inputarray)
+        {
             var output = "";
-            if (inputarray.Length == 1 && inputarray[0] == "north"|| inputarray[0] == "south"|| inputarray[0] == "east"|| inputarray[0] == "west")
+            if (inputarray.Length == 1 && inputarray[0] == "north" || inputarray[0] == "south" || inputarray[0] == "east" || inputarray[0] == "west")
             {
                 return "go" + inputarray[0];
             }
@@ -24,7 +37,7 @@ namespace GruppUppgift_3
             {
                 Console.WriteLine("Invalid command");
             }
-            if (inputarray[0]=="go")
+            if (inputarray[0] == "go")
             {
                 output = CheckForGoCommands(inputarray[1]);
             }

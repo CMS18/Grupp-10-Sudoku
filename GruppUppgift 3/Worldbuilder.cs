@@ -74,12 +74,8 @@ namespace GruppUppgift_3
             dresser.containerItems.Add(GoldenKey);
             bedRoom.roomItems.Add(GoldenKey);
 
-            Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false);
-
-            Key RustyKey = new Key("rustykey", "Opens nothing", "Useless", false); //items läggs i rummen
-            kitchen.roomItems.Add(RustyKey);
-            Key GoldenKey = new Key("goldenkey", "Shiny", "Opens chest in the oven", true);
-            livingRoom.roomItems.Add(GoldenKey);
+            Key RustyKey = new Key("rustykey", "Opens nothing", "Useless", false);
+            kitchen.AddItem(RustyKey);
 
         }
 
@@ -123,6 +119,7 @@ namespace GruppUppgift_3
             }
             else if (inputArray[0]=="take")
             {
+                bool SuccesfullItemPickup = false;
                 foreach (var item in player1.CurrentPosition.roomItems)
                 {
                     if (inputArray[1] == item.Name)
@@ -130,8 +127,14 @@ namespace GruppUppgift_3
                         player1.Inventory.Add(item);
                         player1.CurrentPosition.roomItems.Remove(item);
                         Console.WriteLine(item.Name + " was added to your inventory.");
-                        
+                        SuccesfullItemPickup = true;
+                        break;
                     }
+                    
+                }
+                if (SuccesfullItemPickup == false)
+                {
+                    Console.WriteLine("You cannot do that...");
                 }
             }
         }
