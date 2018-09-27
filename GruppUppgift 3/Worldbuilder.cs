@@ -71,21 +71,41 @@ namespace GruppUppgift_3
                     Console.WriteLine($"Choose your next move : ");
 
                     var command = InputManager.GetUserInput(Console.ReadLine());
-                    dostuff(command);
+                    DoStuff(command);
                 }
             }
         }
 
-        private void dostuff(string input)
+        private void DoStuff(string input)
         {
-            if (input == "go north" && player1.GetCurrentPosition(player1) == "kitchen")
+            input.ToLower();
+            var inputArray = input.Split(' ');
+            if (inputArray[0] == "go")
             {
-                player1.ChangePosition(livingRoom);
+                if(CheckForDoor(inputArray[1], out Room room))
+                {
+                    player1.ChangePosition(room);
+                }
+                else
+                {
+                    Console.WriteLine("You cannot go there");
+                }
             }
-            else if (input == "go south" && player1.GetCurrentPosition(player1) == "livingroom"  )
+
+        }
+        public bool CheckForDoor(string input, out Room room)
+        {
+            foreach (var item in player1.CurrentPosition.Exits)
             {
-                player1.ChangePosition(kitchen);
+                if (item.Position == input)
+                {
+                    room = item.Leadsto;
+                    return true;
+                    
+                }
             }
+            room = null;
+            return false;
         }
     }
 }
