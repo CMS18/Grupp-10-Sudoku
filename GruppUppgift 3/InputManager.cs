@@ -19,7 +19,7 @@ namespace GruppUppgift_3
             {
                 return "help";
             }
-            if (inputarray[0] == "go")
+            else if (inputarray[0] == "go")
             {
                 return CheckForGoCommands(inputarray);
             }
@@ -28,6 +28,10 @@ namespace GruppUppgift_3
                 return ArrayToString(inputarray);                
             }
             else if (inputarray[0] == "inventory")
+            {
+                return ArrayToString(inputarray);
+            }
+            else if (inputarray[0] == "drop")
             {
                 return ArrayToString(inputarray);
             }

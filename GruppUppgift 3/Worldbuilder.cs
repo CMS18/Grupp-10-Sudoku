@@ -151,7 +151,7 @@ namespace GruppUppgift_3
 
                     //}
 
-                }
+            }
         }
 
         private void DoStuff(string input)
@@ -184,13 +184,9 @@ namespace GruppUppgift_3
         private void Dropitem(string[] inputArray)
         {
             bool success = false;
-            if (inputArray.Length == 3)
-            {
-                inputArray[1] = inputArray[1] + " " + inputArray[2];
-            }
             foreach (var item in player1.Inventory)
             {
-                if (inputArray[1] == item.Name)
+                if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
                 {
                     player1.Inventory.Remove(item);
                     player1.CurrentPosition.roomItems.Add(item);
