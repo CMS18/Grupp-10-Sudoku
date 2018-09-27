@@ -165,41 +165,79 @@ namespace GruppUppgift_3
             var inputArray = input.Split(' ');
             if (inputArray[0] == "go")
             {
-                if (CheckForDoor(inputArray[1], out Room room))
-                {
-                    player1.ChangePosition(room);
-                    Console.Title = room.Name;
-                }
-                else
-                {
-                    
-                    Console.WriteLine("You cannot go there");
-                }
+                MovePlayer(inputArray);
             }
             else if (inputArray[0]=="take")
             {
-                bool SuccesfullItemPickup = false;
-                foreach (var item in player1.CurrentPosition.roomItems)
-                {
-                    if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
-                    {
-                        player1.Inventory.Add(item);
-                        player1.CurrentPosition.roomItems.Remove(item);
-                        Console.WriteLine(item.Name + " was added to your inventory.");
-                        SuccesfullItemPickup = true;
-                        break;
-                    }
-                    
-                }
-                if (SuccesfullItemPickup == false)
-                {
-                    Console.WriteLine("You cannot do that...");
-                }
+                TakeItem(inputArray);
             }
             else if (inputArray[0] == "inventory")
             {
                 player1.CheckInventory();
             }
+            else if (inputArray[0]== "drop")
+            {
+                Dropitem(inputArray);
+            }
+        }
+
+        private void Dropitem(string[] inputArray)
+        {
+            bool success = false;
+            if (inputArray.Length == 3)
+            {
+                inputArray[1] = inputArray[1] + " " + inputArray[2];
+            }
+            foreach (var item in player1.Inventory)
+            {
+                if (inputArray[1] == item.Name)
+                {
+                    player1.Inventory.Remove(item);
+                    player1.CurrentPosition.roomItems.Add(item);
+                    Console.WriteLine("YOU THREW THE " + item.Name + " ON THE GROUND!");
+                    success = true;
+                }
+            }
+            if (success == false)
+            {
+                Console.WriteLine("Couldn't drop item :(");
+            }
+        }
+
+        private void MovePlayer(string[] inputArray)
+        {
+            if (CheckForDoor(inputArray[1], out Room room))
+            {
+                player1.ChangePosition(room);
+                Console.Title = room.Name;
+            }
+            else
+            {
+
+                Console.WriteLine("You cannot go there");
+            }
+        }
+
+        private void TakeItem(string[] inputArray)
+        {
+            bool SuccesfullItemPickup = false;
+            foreach (var item in player1.CurrentPosition.roomItems)
+            {
+                if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
+                {
+                    player1.Inventory.Add(item);
+                    player1.CurrentPosition.roomItems.Remove(item);
+                    Console.WriteLine(item.Name + " was added to your inventory.");
+                    SuccesfullItemPickup = true;
+                    break;
+                }
+
+            }
+            if (SuccesfullItemPickup == false)
+            {
+                Console.WriteLine("You cannot do that...");
+            }       
+
         }
         public bool CheckForDoor(string input, out Room room)
         {

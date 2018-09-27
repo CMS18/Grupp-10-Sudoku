@@ -8,8 +8,8 @@ namespace GruppUppgift_3
 {
     public class Container:Item
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        //public string Name { get; set; }
+        //public string Description { get; set; }
         public List<Item> containerItems { get; set; } = new List<Item>();
 
         public Container(string name,string description)
