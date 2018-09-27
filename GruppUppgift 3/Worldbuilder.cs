@@ -104,7 +104,6 @@ namespace GruppUppgift_3
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine("***");
                     Console.Write("Choose your next move: ");
-                    Console.WriteLine();
 
                     var command = InputManager.GetUserInput(Console.ReadLine());
                     DoStuff(command);
@@ -162,6 +161,7 @@ namespace GruppUppgift_3
             {
                 Console.Clear();
                 player1.helpMenu();
+                Console.Clear();
             }
             if (inputArray[0] == "go")
             {
