@@ -21,9 +21,23 @@ namespace GruppUppgift_3
             }
             else if (inputarray[0]== "take")
             {
-                return inputarray[0] + " " + inputarray[1];
+                return ArrayToString(inputarray);                
+            }
+            else if (inputarray[0] == "inventory")
+            {
+                return ArrayToString(inputarray);
             }
             return "hej";
+        }
+
+        public static string ArrayToString(string[] inputarray)
+        {
+            string input = "";
+            foreach (var item in inputarray)
+            {
+                input += item + " ";
+            }
+            return input;
         }
 
         private static string CheckForGoCommands(string[] inputarray)
