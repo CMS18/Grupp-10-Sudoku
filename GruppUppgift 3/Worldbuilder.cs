@@ -62,9 +62,9 @@ namespace GruppUppgift_3
             buraue.bureauItems.Add(flashlight);
             kitchen.AddItem(buraue);
 
-            Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false); //items läggs i rummen
+            Key RustyKey = new Key("rustykey", "Opens nothing", "Useless", false); //items läggs i rummen
             kitchen.roomItems.Add(RustyKey);
-            Key GoldenKey = new Key("Golden key", "Shiny", "Opens chest in the oven", true);
+            Key GoldenKey = new Key("goldenkey", "Shiny", "Opens chest in the oven", true);
             livingRoom.roomItems.Add(GoldenKey);
 
         }
@@ -107,7 +107,19 @@ namespace GruppUppgift_3
                     Console.WriteLine("You cannot go there");
                 }
             }
-
+            else if (inputArray[0]=="take")
+            {
+                foreach (var item in player1.CurrentPosition.roomItems)
+                {
+                    if (inputArray[1] == item.Name)
+                    {
+                        player1.Inventory.Add(item);
+                        player1.CurrentPosition.roomItems.Remove(item);
+                        Console.WriteLine(item.Name + " was added to your inventory.");
+                        
+                    }
+                }
+            }
         }
         public bool CheckForDoor(string input, out Room room)
         {
