@@ -38,12 +38,19 @@ namespace GruppUppgift_3
 
             
             player1.ChangePosition(kitchen);
-
+            //kitchendoors
             Door Door1 = new Door(false, 1, livingRoom, "north");                                                           //exits läggs till i rummen
             kitchen.AddExit(Door1);
+            //livingroom doors
             Door Door2 = new Door(false, 2, kitchen, "south");
             livingRoom.AddExit(Door2);
-            
+            Door Door3 = new Door(false, 3, bedRoom, "east");
+            livingRoom.AddExit(Door3);
+            Door Door4 = new Door(false, 4, bathRoom, "west");
+            //bedroom doors
+            Door Door5 = new Door(false, 5, livingRoom, "west");
+            //Bathroom doors
+            Door Door6 = new Door(false, 6, livingRoom, "east");
             
 
             Key RustyKey = new Key("Rusty key", "Opens nothing", "Useless", false); //items läggs i rummen
