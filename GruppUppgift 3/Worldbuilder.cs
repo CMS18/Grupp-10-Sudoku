@@ -153,7 +153,7 @@ namespace GruppUppgift_3
 
                     //}
 
-                }
+            }
         }
 
         private void DoStuff(string input)
@@ -170,7 +170,7 @@ namespace GruppUppgift_3
             {
                 MovePlayer(inputArray);
             }
-            else if (inputArray[0]=="take")
+            else if (inputArray[0] == "take")
             {
                 TakeItem(inputArray);
             }
@@ -178,27 +178,45 @@ namespace GruppUppgift_3
             {
                 player1.CheckInventory();
             }
-            else if (inputArray[0]== "drop")
+            else if (inputArray[0] == "drop")
             {
                 Dropitem(inputArray);
             }
+            else if (inputArray[0] == "look")
+            {
+                Console.WriteLine(player1.CurrentPosition.Description);
+            }
+            else
+            {
+                Console.WriteLine("invalid command");
+            }
+            //else if (inputArray[0] == "inspect")
+            //{
+            //    InspectItem();
+            //}
+            // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
         }
+
+        //private void InspectItem()
+        //{
+        //    foreach (var item in player1.Inventory)
+        //    {
+                
+        //    }
+        //}
 
         private void Dropitem(string[] inputArray)
         {
             bool success = false;
-            if (inputArray.Length == 3)
-            {
-                inputArray[1] = inputArray[1] + " " + inputArray[2];
-            }
             foreach (var item in player1.Inventory)
             {
-                if (inputArray[1] == item.Name)
+                if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
                 {
-                    player1.Inventory.Remove(item);
                     player1.CurrentPosition.roomItems.Add(item);
+                    player1.Inventory.Remove(item);
                     Console.WriteLine("YOU THREW THE " + item.Name + " ON THE GROUND!");
                     success = true;
+                    break;
                 }
             }
             if (success == false)

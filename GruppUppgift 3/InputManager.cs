@@ -15,23 +15,16 @@ namespace GruppUppgift_3
 
             input = input.ToLower();
             var inputarray = input.Split(' ');
-            if (inputarray[0] == "help")
-            {
-                return "help";
-            }
+
             if (inputarray[0] == "go")
             {
                 return CheckForGoCommands(inputarray);
             }
-            else if (inputarray[0]== "take")
+            else
             {
-                return ArrayToString(inputarray);                
+                return input;
             }
-            else if (inputarray[0] == "inventory")
-            {
-                return ArrayToString(inputarray);
-            }
-            return "hej";
+            
         }
 
         public static string ArrayToString(string[] inputarray)
