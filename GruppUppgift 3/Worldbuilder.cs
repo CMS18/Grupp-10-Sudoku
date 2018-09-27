@@ -91,6 +91,7 @@ namespace GruppUppgift_3
                 Console.WriteLine();
                 Console.Write("Give your character a name: ");
                 player1.Name = Console.ReadLine();
+                Console.Title = "Kitchen";
 
                 while (player1.Alive)
                 {
@@ -99,6 +100,7 @@ namespace GruppUppgift_3
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine("***");
                     Console.Write("Choose your next move: ");
+                    Console.WriteLine();
 
                     var command = InputManager.GetUserInput(Console.ReadLine());
                     DoStuff(command);
@@ -115,6 +117,7 @@ namespace GruppUppgift_3
                 if(CheckForDoor(inputArray[1], out Room room))
                 {
                     player1.ChangePosition(room);
+                    Console.Title = room.Name;
                 }
                 else
                 {
