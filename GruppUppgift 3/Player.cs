@@ -23,6 +23,20 @@ namespace GruppUppgift_3
         {
             return player1.CurrentPosition.Name;
         }
+        public void CheckInventory()
+        {
+            if (Inventory.Count == 0)
+            {
+                Console.WriteLine("Your inventory is empty.");
+            }
+            else
+            {
+                foreach (var item in Inventory)
+                {
+                    Console.WriteLine("1. " + item.Name);
+                }
+            }
+        }
         //public void CreateCharacter()
         //{
         //    Console.WriteLine("*******************************");          
