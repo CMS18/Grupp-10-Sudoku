@@ -183,6 +183,10 @@ namespace GruppUppgift_3
             {
                 Console.WriteLine(player1.CurrentPosition.Description);
             }
+            else
+            {
+                Console.WriteLine("invalid command");
+            }
             //else if (inputArray[0] == "inspect")
             //{
             //    InspectItem();
