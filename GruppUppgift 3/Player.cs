@@ -30,7 +30,7 @@ namespace GruppUppgift_3
         //    Console.WriteLine("*******************************");
         //    Console.WriteLine();
         //    Console.Write("Give your character a name: ");
-        //    string name = Console.ReadLine();
+        //     player = Console.ReadLine();
         //    Console.WriteLine();
         //    Console.WriteLine($"{name}, are you ready? y/n");
         //    string svar = Console.ReadLine().ToLower();
