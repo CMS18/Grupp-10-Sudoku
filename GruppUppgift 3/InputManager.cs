@@ -12,10 +12,14 @@ namespace GruppUppgift_3
 
         public static string GetUserInput(string input)
         {
+
             input = input.ToLower();
             var inputarray = input.Split(' ');
             var output = "";
-            
+            if (inputarray.Length == 1 && inputarray[0] == "north"|| inputarray[0] == "south"|| inputarray[0] == "east"|| inputarray[0] == "west")
+            {
+                return "go" + inputarray[0];
+            }
             if (!KeyWords.Contains(inputarray[0]))
             {
                 Console.WriteLine("Invalid command");
