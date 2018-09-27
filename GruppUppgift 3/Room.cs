@@ -11,7 +11,7 @@ namespace GruppUppgift_3
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Item> roomItems { get; set; } = new List<Item>();
-        public List<Door> Exits = new List<Door>();
+        public List<Door> Exits { get; set; } = new List<Door>();
 
         public Room()
         {

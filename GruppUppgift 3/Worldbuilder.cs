@@ -9,7 +9,7 @@ namespace GruppUppgift_3
     public class Worldbuilder
     {
 
-        public Player Player { get; set; } = new Player();
+        public Player player1 { get; set; } = new Player();
         public List<Room> Rooms { get; set; } = new List<Room>();
         public string Name { get; set; }
 
@@ -19,9 +19,10 @@ namespace GruppUppgift_3
             
             Room livingRoom = new Room("Living room", "Dark and fuckery");
             Room kitchen = new Room("Kitchen", "The flooring is white marble, to the north of you there is a" +  //spelvärlden skapas upp när man skapar ett 
-            " vintage-looking mahogany door. On the floor infront of you there is a old key.");                  //Worldbuilderobjekt
+            " vintage-looking mahogany door. On the floor infront of you there is a old key."); 
+            
 
-            Player.ChangePosition(kitchen);
+            player1.ChangePosition(kitchen);
 
             Door Door1 = new Door(false, 1, livingRoom, kitchen, "north");                                                           //exits läggs till i rummen
             kitchen.AddExit(Door1);
@@ -33,19 +34,20 @@ namespace GruppUppgift_3
             Key GoldenKey = new Key("Golden key", "Shiny", "Opens chest in the oven", true);
             livingRoom.roomItems.Add(GoldenKey);
 
-
-
+            Rooms.Add(kitchen);
+            Rooms.Add(livingRoom);
         }
 
 
         public void NewGame()
         {
-            while (Player.Alive)
+            while (player1.Alive)
             {
-                Console.WriteLine(Player.CurrentPosition.Description);
+                Console.WriteLine(player1.CurrentPosition.Description);
                 Console.WriteLine("Choose your next move: ");
 
-                InputManager.GetUserInput(Console.ReadLine());
+                var command = InputManager.GetUserInput(Console.ReadLine());
+                dostuff(command);
                 
             }
 
@@ -80,6 +82,14 @@ namespace GruppUppgift_3
                 //}
                 
             
-        } 
+        }
+
+        private void dostuff(string input)
+        {
+            if (input == "go north")
+            {
+                player1.ChangePosition(Rooms[1]);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace GruppUppgift_3
     {
         public string Name { get; set; }
         public List<Item> Inventory { get; set; } = new List<Item>();
-        public static bool Alive { get; set; } = true;
+        public bool Alive { get; set; } = true;
         public Room CurrentPosition { get; set; }
 
 

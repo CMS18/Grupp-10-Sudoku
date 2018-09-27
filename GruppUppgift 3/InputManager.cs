@@ -10,40 +10,30 @@ namespace GruppUppgift_3
     {
         private static List<string> KeyWords = new List<string> { "take", "use", "go", "inventory" };
 
-        public static void GetUserInput(string input)
+        public static string GetUserInput(string input)
         {
             input = input.ToLower();
             var inputarray = input.Split(' ');
+            var output = "";
             
-            if (!KeyWords.Contains(input))
+            if (!KeyWords.Contains(inputarray[0]))
             {
                 Console.WriteLine("Invalid command");
             }
             if (inputarray[0]=="go")
             {
-                CheckForGoCommands(inputarray[1]);
+                output = CheckForGoCommands(inputarray[1]);
             }
-            
+            return inputarray[0] + " " + output;
         }
 
-        private static void CheckForGoCommands(string input)
+        private static string CheckForGoCommands(string input)
         {
-            if (input == "east" && )
+            if (input == "east" || input == "west" || input == "south" || input == "north")
             {
-
+                return input;
             }
-            else if (input == "west")
-            {
-
-            }
-            else if (input == "north")
-            {
-
-            }
-            else if (input == "south")
-            {
-
-            }
+            return "Invalid command";
         }
     }
 }
