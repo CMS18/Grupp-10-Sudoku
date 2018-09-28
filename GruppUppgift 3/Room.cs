@@ -39,5 +39,7 @@ namespace GruppUppgift_3
         {
             roomItems.Add(item);
         }
+
+      
     }
 }

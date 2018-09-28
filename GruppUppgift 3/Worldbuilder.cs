@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace GruppUppgift_3
 {
     public class Worldbuilder
     {
-
+        public Container container { get; set; } = new Container();
         public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
         public Room kitchen = new Room("Kitchen", 
@@ -29,6 +30,13 @@ namespace GruppUppgift_3
             " to the west there is a painting of some old women in a rocking chair");
         public Room bathRoom = new Room("Bath room",
             "To the north there is a toilet dressed in leather");
+        //MÖBLER Kök
+        public Room buraue = new Room("Old buraue", "Top-shelf contain items");
+        public Room fridge = new Room("Fridge", " contains clue sheet");
+        //Möbler sovrum
+        Room dresser = new Room("dresser", "contains golden key");
+
+
 
 
         public Worldbuilder(string name)
@@ -53,25 +61,26 @@ namespace GruppUppgift_3
             //Bathroom doors
             Door Door6 = new Door(false, 6, livingRoom, "east");
             bathRoom.AddExit(Door6);
+            Door Door7 = new Door(false, 7, kitchen, "buraue");
+            kitchen.AddExit(Door7);
+            Door Door8 = new Door(false, 8, kitchen, "fridge");
+            kitchen.AddExit(Door8);
+            Door Door9 = new Door(false, 9, bedRoom, "dresser");
+            kitchen.AddExit(Door9);
 
             //  Buraue with items (kitchen)
             Item remote = new Item("Tv-remote", "black", "Turns on the tv");
-            Item flashlight = new Item("Flashlight", "tiny", "Turn on for light");
-            Container buraue = new Container("Old buraue", "Top-shelf contain items");
-            buraue.containerItems.Add(remote);
-            buraue.containerItems.Add(flashlight);
-            kitchen.AddItem(buraue);
+            Item flashlight = new Item("Flashlight", "tiny", "Turn on for light");           
+            buraue.roomItems.Add(remote);
+            buraue.roomItems.Add(flashlight);
 
             // Fridge with clue (kitchen)
             Item clueSheet = new Item("clue sheet", "check for new clues in the bathroom", "readme");
-            Container fridge = new Container("Fridge", " contains clue sheet");
-            fridge.containerItems.Add(clueSheet);
-            kitchen.AddItem(fridge);
+            fridge.roomItems.Add(clueSheet);
 
             //Dresser with items (Bed room)
             Key GoldenKey = new Key("golden key", "Shiny", "opens chest in the oven", true);
-            Container dresser = new Container("dresser", "contains golden key");
-            dresser.containerItems.Add(GoldenKey);
+            dresser.roomItems.Add(GoldenKey);
             bedRoom.roomItems.Add(GoldenKey);
 
             Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
@@ -104,9 +113,7 @@ namespace GruppUppgift_3
                     Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\"HELP\" to enter the command menu");
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
-                    Console.WriteLine("***");
-                    Console.WriteLine("If you're unsure about the commands, type in ");
-                    Console.WriteLine("***");
+                    Console.WriteLine();
                     Console.Write("Choose your next move: ");
 
                     var command = InputManager.GetUserInput(Console.ReadLine());
@@ -190,7 +197,8 @@ namespace GruppUppgift_3
             }          
             else if (inputArray[0] == "inspect")
             {
-                                InspectItem(inputArray);
+                InspectItem(inputArray);
+                Console.WriteLine(container.Description);
             }
             else
             {
@@ -200,19 +208,19 @@ namespace GruppUppgift_3
         }
 
         private void InspectItem(string[] inputArray)
-        { 
-            var result = from i in player1.CurrentPosition.roomItems
-                         from j in player1.Inventory
-                         where i.Name == inputArray[1] || j.Name == inputArray[1]
-                         select i.Name;
-            foreach (var i in result)
-            {
-                foreach (var j in result)
-                {
-                    Console.WriteLine(j);
-                }
-                Console.WriteLine(i);
-            }
+        {
+            //var result = from i in player1.CurrentPosition.roomItems
+            //    from j in container.containerItems
+            //    where j.Name == inputArray[1]
+            //    where i.Name == inputArray[1]
+            //    select i.Name.Contains(j.Name);
+                    
+            //foreach (var i in result)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            
         }
 
         private void Dropitem(string[] inputArray)
