@@ -69,6 +69,8 @@ namespace GruppUppgift_3
             kitchen.AddExit(Door8);
             Door Door9 = new Door(false, 9, dresser, "dresser");
             bedRoom.AddExit(Door9);
+            Door door10 = new Door(false, 10, kitchen, "kitchen");
+            fridge.AddExit(door10);
 
             //  Buraue with items (kitchen)
             Item remote = new Item("tv-remote", "black", "Turns on the tv");
@@ -145,7 +147,7 @@ namespace GruppUppgift_3
                 Console.Clear();
             }
 
-            if (inputArray[0] == "go" || inputArray[0] == "open")
+            if (inputArray[0] == "go" || inputArray[0] == "open" || inputArray[0] == "exit")
             {
                 MovePlayer(inputArray);
             }
