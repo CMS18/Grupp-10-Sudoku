@@ -90,9 +90,12 @@ namespace GruppUppgift_3
         {
             while (exitMenu)
             {
-
-                Console.WriteLine("***COMMANDS***");
-                Console.WriteLine("***");
+                Console.WriteLine("-------------------------------------------------");
+                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                Console.WriteLine("|" + "\t\t***COMMANDS***" + "\t\t\t|");
+                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                Console.WriteLine("-------------------------------------------------");
+                Console.WriteLine();
                 Console.WriteLine("Move north: \"go north\"");
                 Console.WriteLine("Move west: \"go west\"");
                 Console.WriteLine("Move east: \"go east\"");
@@ -100,7 +103,7 @@ namespace GruppUppgift_3
                 Console.WriteLine("Pick up item: \"item\" ");
                 Console.WriteLine("Drop item: \"item\" ");
                 Console.WriteLine("End game: \"end\"");
-                Console.WriteLine("***");
+                Console.WriteLine();
                 Console.WriteLine("Exit menu: \"exit\"");
                 var svar = Console.ReadLine();
                 if (svar == "exit")

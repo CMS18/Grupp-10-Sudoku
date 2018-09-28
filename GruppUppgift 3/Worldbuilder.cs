@@ -97,9 +97,14 @@ namespace GruppUppgift_3
         public void NewGame()
         {
             {
-                Console.WriteLine("*******************************");
-                Console.WriteLine("*Welcome to the Text Adventure*");
-                Console.WriteLine("*******************************");
+                Console.WriteLine("-------------------------------------------------");
+                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                Console.WriteLine("|" + "\t*WELCOME TO THE TEXT ADVENTURE*" + "\t\t|");
+                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                Console.WriteLine("-------------------------------------------------");
+                //Console.WriteLine("*******************************");
+                //Console.WriteLine("*Welcome to the Text Adventure*");
+                //Console.WriteLine("*******************************");
                 Console.WriteLine();
                 Console.Write("Give your character a name: ");
                 player1.Name = Console.ReadLine();
@@ -112,8 +117,7 @@ namespace GruppUppgift_3
                 while (player1.Alive && start == "start")
                 {
                     //Console.Clear();
-                   
-                    Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\"HELP\" to enter the command menu");
+                    Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\"HELP\" to enter the command menu");
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine();
@@ -128,7 +132,7 @@ namespace GruppUppgift_3
 
         private void DoStuff(string[] inputArray)
         {
-            
+
             if (inputArray[0] == "help")
             {
                 Console.Clear();
@@ -179,13 +183,13 @@ namespace GruppUppgift_3
             //    where j.Name == inputArray[1]
             //    where i.Name == inputArray[1]
             //    select i.Name.Contains(j.Name);
-                    
+
             //foreach (var i in result)
             //{
             //    Console.WriteLine(i);
             //}
 
-            
+
         }
 
         private void Dropitem(string[] inputArray)
