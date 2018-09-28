@@ -34,7 +34,7 @@ namespace GruppUppgift_3
         public Room bureau = new Room("Old bureau", "Top-shelf contain items");
         public Room fridge = new Room("Fridge", " contains 5-56");
         //Möbler sovrum
-        public Room dresser = new Room("dresser", "contains rusty key");
+        public Room dresser = new Room("dresser", "Contains rusty key");
 
 
 
@@ -80,7 +80,7 @@ namespace GruppUppgift_3
 
 
             // Fridge with clue (kitchen)
-            Item RustRemover = new Item("5-56", "check for new clues in the bedroom", "readme");
+            Item RustRemover = new Item("5-56", "Powerful rustremover!", "Do not drink!");
             fridge.AddItem(RustRemover);
 
             //Dresser with items (Bed room)
@@ -201,6 +201,7 @@ namespace GruppUppgift_3
                                 player1.Inventory.Add(Shinykey);
                                 Console.WriteLine("Shiny key was added to your inventory!");
                                 player1.Inventory.Remove(item2);
+                                dresser.Description = "Empty";
                                 break;
                             }
 
