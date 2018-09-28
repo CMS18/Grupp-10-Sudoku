@@ -61,10 +61,12 @@ namespace GruppUppgift_3
             //Bathroom doors
             Door Door6 = new Door(false, 6, livingRoom, "east");
             bathRoom.AddExit(Door6);
-            Door Door7 = new Door(false, 7, kitchen, "buraue");
+
+            //item doors eller nåt
+            Door Door7 = new Door(false, 7, buraue, "buraue");
             kitchen.AddExit(Door7);
             Door Door8 = new Door(false, 8, kitchen, "fridge");
-            kitchen.AddExit(Door8);
+            buraue.AddExit(Door8);
             Door Door9 = new Door(false, 9, bedRoom, "dresser");
             kitchen.AddExit(Door9);
 
