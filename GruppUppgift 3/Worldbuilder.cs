@@ -9,7 +9,6 @@ namespace GruppUppgift_3
 {
     public class Worldbuilder
     {
-        public Container container { get; set; } = new Container();
         public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
         public Room kitchen = new Room("Kitchen",
