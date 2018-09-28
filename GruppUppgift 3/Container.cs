@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace GruppUppgift_3
         //public string Description { get; set; }
         public List<Item> containerItems { get; set; } = new List<Item>();
 
+        public Container()
+        {
+            
+        }
         public Container(string name,string description)
         {
             Name = name;

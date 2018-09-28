@@ -40,7 +40,9 @@ namespace GruppUppgift_3
         private static string CheckForGoCommands(string[] inputarray)
         {
             var output = "";
-            if (inputarray.Length == 1 && inputarray[0] == "north" || inputarray[0] == "south" || inputarray[0] == "east" || inputarray[0] == "west")
+            if (inputarray.Length == 1 && inputarray[0] == "north" || inputarray[0] == "south" || 
+                inputarray[0] == "east" || inputarray[0] == "west" || inputarray[0] == "dresser" ||
+                inputarray[0] == "buraue" || inputarray[0] == "fridge")
             {
                 return "go" + inputarray[0];
             }
