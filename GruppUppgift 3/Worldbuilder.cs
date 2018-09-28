@@ -73,8 +73,8 @@ namespace GruppUppgift_3
             //  Buraue with items (kitchen)
             Item remote = new Item("Tv-remote", "black", "Turns on the tv");
             Item flashlight = new Item("Flashlight", "tiny", "Turn on for light");           
-            buraue.roomItems.Add(remote);
-            buraue.roomItems.Add(flashlight);
+            buraue.AddItem(remote);
+            buraue.AddItem(flashlight);
 
             // Fridge with clue (kitchen)
             Item clueSheet = new Item("clue sheet", "check for new clues in the bathroom", "readme");
