@@ -104,7 +104,7 @@ namespace GruppUppgift_3
                 Console.WriteLine("Drop item: \"drop\" + \"itemName\" ");
                 Console.WriteLine("Use item: \"use\" + \"itemName\" ");
                 Console.WriteLine("End game: \"end\"");
-                Console.WriteLine();
+                Console.WriteLine("***");
                 Console.WriteLine("Exit menu: \"exit\"");
                 var svar = Console.ReadLine();
                 if (svar == "exit")
