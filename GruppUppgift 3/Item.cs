@@ -33,7 +33,7 @@ namespace GruppUppgift_3
         }
         public virtual void DropItem()
         {
-            // Ska droppas i rummet du är i
+            // Ska droppas i rummet du är i = player1.inventory > roomX.inventory
         }
     }
 }
