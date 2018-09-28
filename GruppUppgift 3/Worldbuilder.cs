@@ -172,9 +172,9 @@ namespace GruppUppgift_3
             {
                 InspectItem(inputArray);
             }
-            else if (inputArray[0] == "merge")
+            else if (inputArray[0] == "use")
             {
-                mergeItem(inputArray);
+                useItem(inputArray);
             }
             else
             {
@@ -183,10 +183,32 @@ namespace GruppUppgift_3
             // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
         }
 
-        private void mergeItem(string[] inputArray)
+        private void useItem(string[] inputArray)
         {
-            //var result = from i in player1.Inventory
-            //             where o
+            if (inputArray[1] == "5-56 on rusty key")
+            {
+                foreach (var item in player1.Inventory)
+                {
+               
+                    if (item.Name == "5-56")
+                    {
+                        foreach (var item2 in player1.Inventory)
+                        {
+                            if (item2.Name == "rusty key")
+                            {
+                                Key Shinykey = new Key("shiny key", "looks shiny", "Opens bathroom", true);
+                                player1.Inventory.Add(Shinykey);
+                                Console.WriteLine("Shiny key was added to your inventory!");
+                                player1.Inventory.Remove(item2);
+                                break;
+                            }
+
+                        }
+
+                        break;
+                    }
+                }
+            }
         }
 
         private void InspectItem(string[] inputArray)
