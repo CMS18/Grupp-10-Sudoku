@@ -111,9 +111,7 @@ namespace GruppUppgift_3
                 Console.WriteLine("|" + "\t*WELCOME TO THE TEXT ADVENTURE*" + "\t\t|");
                 Console.WriteLine("|" + "\t\t\t\t\t\t|");
                 Console.WriteLine("-------------------------------------------------");
-                //Console.WriteLine("*******************************");
-                //Console.WriteLine("*Welcome to the Text Adventure*");
-                //Console.WriteLine("*******************************");
+
                 Console.WriteLine();
                 Console.Write("Give your character a name: ");
                 player1.Name = Console.ReadLine();
@@ -182,7 +180,6 @@ namespace GruppUppgift_3
             {
                 Console.WriteLine("invalid command");
             }
-            // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
         }
 
         private void useItem(string[] inputArray)
@@ -236,17 +233,6 @@ namespace GruppUppgift_3
                 Console.WriteLine(item.Name);
                 Console.WriteLine(item.Description);
             }
-            //var result = from i in player1.CurrentPosition.roomItems
-            //    from j in container.containerItems
-            //    where j.Name == inputArray[1]
-            //    where i.Name == inputArray[1]
-            //    select i.Name.Contains(j.Name);
-
-            //foreach (var i in result)
-            //{
-            //    Console.WriteLine(i);
-            //}
-
 
         }
 
