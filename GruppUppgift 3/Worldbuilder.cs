@@ -99,7 +99,7 @@ namespace GruppUppgift_3
                 
                 while (player1.Alive && start == "start")
                 {
-                    Console.Clear();
+                    //Console.Clear();
                    
                     Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\"HELP\" to enter the command menu");
                     Console.WriteLine("***");
@@ -113,54 +113,12 @@ namespace GruppUppgift_3
                     DoStuff(command);
                 }
 
-
-                    //}
-
-                    //while (player1.Alive)
-                    //{
-                    //    if (player1.Alive && "start" == Console.ReadLine().ToLower())
-                    //    {
-                    //        Console.WriteLine(player1.CurrentPosition.Name);
-                    //        Console.WriteLine(player1.CurrentPosition.Description);
-                    //        Console.WriteLine($"Choose your next move : ");
-                    //        var command = InputManager.GetUserInput(Console.ReadLine());
-                    //        DoStuff(command);
-                    //        Console.WriteLine();
-
-                    //    }
-                    //    else if (player1.Alive && "help" == Console.ReadLine().ToLower())
-                    //    {
-                    //        Console.WriteLine($"Commands: \r\ngo \r\nsouth \r\nnorth \r\nwest \r\neast" +
-                    //        $" \r\nhelp \r\ntake \r\ndrop\r\ninventory");
-                    //        Console.WriteLine($"Choose your next move: ");
-                    //        var command = InputManager.GetUserInput(Console.ReadLine());
-                    //        DoStuff(command);
-
-
-                    //    }
-                    //    else if (player1.Alive)
-                    //    {
-                    //        Console.WriteLine(player1.CurrentPosition.Name);
-                    //        Console.WriteLine(player1.CurrentPosition.Description);
-                    //        Console.WriteLine($"Choose your next move : ");
-                    //        var command = InputManager.GetUserInput(Console.ReadLine());
-                    //        DoStuff(command);
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("fel");
-                    //    }
-
-
-                    //}
-
             }
         }
 
-        private void DoStuff(string input)
+        private void DoStuff(string[] inputArray)
         {
-            input.ToLower();
-            var inputArray = input.Split(' ');
+            
             if (inputArray[0] == "help")
             {
                 Console.Clear();
@@ -190,7 +148,7 @@ namespace GruppUppgift_3
             }          
             else if (inputArray[0] == "inspect")
             {
-                                InspectItem(inputArray);
+                InspectItem(inputArray);
             }
             else
             {
@@ -214,7 +172,7 @@ namespace GruppUppgift_3
             bool success = false;
             foreach (var item in player1.Inventory)
             {
-                if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
+                if (inputArray[1] == item.Name)
                 {
                     player1.CurrentPosition.roomItems.Add(item);
                     player1.Inventory.Remove(item);
@@ -249,7 +207,7 @@ namespace GruppUppgift_3
             bool SuccesfullItemPickup = false;
             foreach (var item in player1.CurrentPosition.roomItems)
             {
-                if (inputArray[1] == item.Name || inputArray[1] + " " + inputArray[2] == item.Name)
+                if (inputArray[1] == item.Name)
                 {
                     player1.Inventory.Add(item);
                     player1.CurrentPosition.roomItems.Remove(item);
