@@ -110,7 +110,7 @@ namespace GruppUppgift_3
                 {
                     Console.Clear();
 
-                    Console.WriteLine(player1.CurrentPosition.Name);
+                    Console.WriteLine(player1.CurrentPosition.Name+ "\t\t\t\t\t\t\tType \"HELP\" for commands");
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine();
