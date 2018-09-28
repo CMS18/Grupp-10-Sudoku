@@ -15,7 +15,7 @@ namespace GruppUppgift_3
         public Room CurrentPosition { get; set; }
         public bool exitMenu = true;
 
-        public void ChangePosition (Room NewRoom)
+        public void ChangePosition(Room NewRoom)
         {
             CurrentPosition = NewRoom;
         }
@@ -52,8 +52,8 @@ namespace GruppUppgift_3
         //    {
         //        Console.Clear();
         //        Console.WriteLine("Be careful, be silent and dont make any mistakes.");
-              
-                
+
+
         //        Console.ReadLine();
         //    }
         //    else if (svar == "n")
@@ -63,15 +63,15 @@ namespace GruppUppgift_3
         //            Console.WriteLine("Coward");
         //        }
 
-                
+
         //    }
-           
-            
 
-            
 
-            
-           
+
+
+
+
+
         //}
         //public void PickUpItem(Item item)
         //{
@@ -92,13 +92,15 @@ namespace GruppUppgift_3
             {
 
                 Console.WriteLine("***COMMANDS***");
-                Console.WriteLine("go north");
-                Console.WriteLine("go west");
-                Console.WriteLine("go east");
-                Console.WriteLine("go south");
-                Console.WriteLine("take \"item\" ");
-                Console.WriteLine("drop \"item\" ");
-
+                Console.WriteLine("***");
+                Console.WriteLine("Move north: \"go north\"");
+                Console.WriteLine("Move west: \"go west\"");
+                Console.WriteLine("Move east: \"go east\"");
+                Console.WriteLine("Move south: \"go south\"");
+                Console.WriteLine("Pick up item: \"item\" ");
+                Console.WriteLine("Drop item: \"item\" ");
+                Console.WriteLine("End game: \"end\"");
+                Console.WriteLine("***");
                 Console.WriteLine("Exit menu: \"exit\"");
                 var svar = Console.ReadLine();
                 if (svar == "exit")

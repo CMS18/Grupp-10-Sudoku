@@ -12,10 +12,10 @@ namespace GruppUppgift_3
         public Container container { get; set; } = new Container();
         public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
-        public Room kitchen = new Room("Kitchen", 
+        public Room kitchen = new Room("Kitchen",
             "The flooring is white marble, to the east of you there is a stove and a fridge" +
             "to the left,\n there is an old bureau, the top shelf is open \n" +
-            "to the north, there is a vintage-looking magahony door." ); 
+            "to the north, there is a vintage-looking magahony door.");
 
         public Room livingRoom = new Room("Living room",
                "It is dark and freezing cold, " +
@@ -86,8 +86,8 @@ namespace GruppUppgift_3
             Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
             kitchen.AddItem(RustyKey);
 
-            
-          
+
+
         }
 
 
@@ -102,15 +102,15 @@ namespace GruppUppgift_3
                 player1.Name = Console.ReadLine();
                 Console.Title = "Kitchen";
                 Console.WriteLine($"Hi {player1.Name}! \r\nWelcome to the Text Adventure V1.02.\n" +
-                    $" Type in \rSTART to start your new adveture,\r\nEnjoy!");
+                    $"Type in \"START\" to begin your new adveture,\r\nEnjoy!");
                 var start = Console.ReadLine();
                 Console.WriteLine();
-                
+
                 while (player1.Alive && start == "start")
                 {
                     Console.Clear();
-                   
-                    Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\"HELP\" to enter the command menu");
+
+                    Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine();
@@ -121,45 +121,45 @@ namespace GruppUppgift_3
                 }
 
 
-                    //}
+                //}
 
-                    //while (player1.Alive)
-                    //{
-                    //    if (player1.Alive && "start" == Console.ReadLine().ToLower())
-                    //    {
-                    //        Console.WriteLine(player1.CurrentPosition.Name);
-                    //        Console.WriteLine(player1.CurrentPosition.Description);
-                    //        Console.WriteLine($"Choose your next move : ");
-                    //        var command = InputManager.GetUserInput(Console.ReadLine());
-                    //        DoStuff(command);
-                    //        Console.WriteLine();
+                //while (player1.Alive)
+                //{
+                //    if (player1.Alive && "start" == Console.ReadLine().ToLower())
+                //    {
+                //        Console.WriteLine(player1.CurrentPosition.Name);
+                //        Console.WriteLine(player1.CurrentPosition.Description);
+                //        Console.WriteLine($"Choose your next move : ");
+                //        var command = InputManager.GetUserInput(Console.ReadLine());
+                //        DoStuff(command);
+                //        Console.WriteLine();
 
-                    //    }
-                    //    else if (player1.Alive && "help" == Console.ReadLine().ToLower())
-                    //    {
-                    //        Console.WriteLine($"Commands: \r\ngo \r\nsouth \r\nnorth \r\nwest \r\neast" +
-                    //        $" \r\nhelp \r\ntake \r\ndrop\r\ninventory");
-                    //        Console.WriteLine($"Choose your next move: ");
-                    //        var command = InputManager.GetUserInput(Console.ReadLine());
-                    //        DoStuff(command);
-
-
-                    //    }
-                    //    else if (player1.Alive)
-                    //    {
-                    //        Console.WriteLine(player1.CurrentPosition.Name);
-                    //        Console.WriteLine(player1.CurrentPosition.Description);
-                    //        Console.WriteLine($"Choose your next move : ");
-                    //        var command = InputManager.GetUserInput(Console.ReadLine());
-                    //        DoStuff(command);
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("fel");
-                    //    }
+                //    }
+                //    else if (player1.Alive && "help" == Console.ReadLine().ToLower())
+                //    {
+                //        Console.WriteLine($"Commands: \r\ngo \r\nsouth \r\nnorth \r\nwest \r\neast" +
+                //        $" \r\nhelp \r\ntake \r\ndrop\r\ninventory");
+                //        Console.WriteLine($"Choose your next move: ");
+                //        var command = InputManager.GetUserInput(Console.ReadLine());
+                //        DoStuff(command);
 
 
-                    //}
+                //    }
+                //    else if (player1.Alive)
+                //    {
+                //        Console.WriteLine(player1.CurrentPosition.Name);
+                //        Console.WriteLine(player1.CurrentPosition.Description);
+                //        Console.WriteLine($"Choose your next move : ");
+                //        var command = InputManager.GetUserInput(Console.ReadLine());
+                //        DoStuff(command);
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("fel");
+                //    }
+
+
+                //}
 
             }
         }
@@ -194,7 +194,7 @@ namespace GruppUppgift_3
             else if (inputArray[0] == "look")
             {
                 Console.WriteLine(player1.CurrentPosition.Description);
-            }          
+            }
             else if (inputArray[0] == "inspect")
             {
                 InspectItem(inputArray);
@@ -254,7 +254,7 @@ namespace GruppUppgift_3
             {
 
                 Console.WriteLine("You cannot go there");
-               
+
             }
         }
 
@@ -276,7 +276,7 @@ namespace GruppUppgift_3
             if (SuccesfullItemPickup == false)
             {
                 Console.WriteLine("You cannot do that...");
-            }       
+            }
 
         }
         public bool CheckForDoor(string input, out Room room)
