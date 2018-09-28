@@ -136,7 +136,7 @@ namespace GruppUppgift_3
                 Console.Clear();
             }
 
-            if (inputArray[0] == "go")
+            if (inputArray[0] == "go" || inputArray[0] == "open")
             {
                 MovePlayer(inputArray);
             }
