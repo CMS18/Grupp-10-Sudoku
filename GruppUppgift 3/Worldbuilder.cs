@@ -85,8 +85,8 @@ namespace GruppUppgift_3
             dresser.roomItems.Add(GoldenKey);
             bedRoom.roomItems.Add(GoldenKey);
 
-            Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
-            kitchen.AddItem(RustyKey);
+            //Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
+            //kitchen.AddItem(RustyKey);
 
 
 
@@ -168,6 +168,10 @@ namespace GruppUppgift_3
 
         private void InspectItem(string[] inputArray)
         {
+            foreach (var item in player1.CurrentPosition.roomItems)
+            {
+                Console.WriteLine(item.Name);
+            }
             //var result = from i in player1.CurrentPosition.roomItems
             //    from j in container.containerItems
             //    where j.Name == inputArray[1]
