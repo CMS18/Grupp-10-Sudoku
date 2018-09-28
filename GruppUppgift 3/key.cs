@@ -9,29 +9,20 @@ namespace GruppUppgift_3
     public class Key : Item
     {
         Item keys = new Item();
-       
+
         public Door OpenExits { get; set; }
         public bool OpensExits { get; set; }
 
-       
 
-        public Key(string name, string description, string function, bool opensExists) : base(name, description, function)
+
+        public Key(string name, string description, string function,
+            bool opensExists) : base(name, description, function)
         {
 
             OpensExits = opensExists;
         }
 
-    
-
-
-        }
-        
-        
-        
-    
-
-
-
-
     }
+
+}
 
