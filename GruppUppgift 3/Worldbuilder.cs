@@ -53,7 +53,7 @@ namespace GruppUppgift_3
             livingRoom.AddExit(Door2);
             Door Door3 = new Door(false, 3, bedRoom, "east");
             livingRoom.AddExit(Door3);
-            Door Door4 = new Door(false, 4, bathRoom, "west");
+            Door Door4 = new Door(true, 4, bathRoom, "west");
             livingRoom.AddExit(Door4);
             //bedroom doors
             Door Door5 = new Door(false, 5, livingRoom, "west");
@@ -253,11 +253,17 @@ namespace GruppUppgift_3
         {
             foreach (var item in player1.CurrentPosition.Exits)
             {
-                if (item.Position == input)
+                if (item.Position == input && item.Locked == false)
                 {
                     room = item.Leadsto;
                     return true;
 
+                }
+                else if (item.Position == input && item.Locked == true)
+                {
+                    Console.WriteLine("The door is locked");
+                    room = null;
+                    return false;
                 }
             }
             room = null;
