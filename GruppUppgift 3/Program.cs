@@ -14,10 +14,6 @@ namespace GruppUppgift_3
             
             Worldbuilder w = new Worldbuilder("RoomBeta");
             w.NewGame();
-
-            //room2.Exits = doorExits;
-            //string play = player1.CurrentPosition.Description;
-            //Console.WriteLine(play);
             Console.WriteLine();
 
 
@@ -33,6 +29,9 @@ namespace GruppUppgift_3
             // om inte klar, gå tillbaka till gameloop.
 
             //Key key = new Key("Rusty key","Rusty");
+            //room2.Exits = doorExits;
+            //string play = player1.CurrentPosition.Description;
+            //Console.WriteLine(play);
 
         }
     }

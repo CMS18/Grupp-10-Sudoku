@@ -15,26 +15,19 @@ namespace GruppUppgift_3
 
         public Room()
         {
-            
+
         }
         public Room(string name, string description)
         {
             Name = name;
             Description = description;
         }
-        
-        public void AddExit (Door exit)
+
+        public void AddExit(Door exit)
         {
             Exits.Add(exit);
         }
-       
 
-        public void ShowLivingRoom()
-        {
-            Name = "Living room";
-            //Description = "Dark and fuckery";
-
-        }
         public void AddItem(Item item)
         {
             roomItems.Add(item);
