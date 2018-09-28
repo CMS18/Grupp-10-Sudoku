@@ -13,7 +13,7 @@ namespace GruppUppgift_3
         public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
         public Room kitchen = new Room("Kitchen",
-            "The flooring is white marble, to the east of you there is a stove and a fridge" +
+            "The flooring is white marble, to the east of you there is a fridge" +
             "to the left,\n there is an old bureau, the top shelf is open \n" +
             "to the north, there is a vintage-looking magahony door.");
 
@@ -31,10 +31,10 @@ namespace GruppUppgift_3
         public Room bathRoom = new Room("Bath room",
             "To the north there is a toilet dressed in leather");
         //MÖBLER Kök
-        public Room buraue = new Room("Old buraue", "Top-shelf contain items");
-        public Room fridge = new Room("Fridge", " contains clue sheet");
+        public Room bureau = new Room("Old bureau", "Top-shelf contain items");
+        public Room fridge = new Room("Fridge", " contains 5-56");
         //Möbler sovrum
-        public Room dresser = new Room("dresser", "contains golden key");
+        public Room dresser = new Room("dresser", "contains rusty key");
 
 
 
@@ -63,7 +63,7 @@ namespace GruppUppgift_3
             bathRoom.AddExit(Door6);
 
             //item doors eller nåt
-            Door Door7 = new Door(false, 7, buraue, "buraue");
+            Door Door7 = new Door(false, 7, bureau, "bureau");
             kitchen.AddExit(Door7);
             Door Door8 = new Door(false, 8, fridge, "fridge");
             kitchen.AddExit(Door8);
@@ -73,22 +73,27 @@ namespace GruppUppgift_3
             //  Buraue with items (kitchen)
             Item remote = new Item("tv-remote", "black", "Turns on the tv");
             Item flashlight = new Item("flashlight", "tiny", "Turn on for light");
-            buraue.AddItem(remote);
-            buraue.AddItem(flashlight);
+            bureau.AddItem(remote);
+            bureau.AddItem(flashlight);
 
 
             // Fridge with clue (kitchen)
-            Item clueSheet = new Item("clue sheet", "check for new clues in the bathroom", "readme");
+            Item clueSheet = new Item("clue sheet", "check for new clues in the bedroom", "readme");
             fridge.AddItem(clueSheet);
 
             //Dresser with items (Bed room)
-            Key GoldenKey = new Key("golden key", "Shiny", "opens chest in the oven", true);
-            dresser.AddItem(GoldenKey);
+
+            //TODO GÖR OM, RUSTY KEY + 5-56 = SHINY KEY
+            //Key ShinyKey = new Key("Shiny key", "Shiny", "opens chest in the oven", true);
+            //dresser.AddItem(ShinyKey);
+
+            Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
+            dresser.AddItem(RustyKey);
             //bedRoom.roomItems.Add(GoldenKey);
 
-            //Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
-            //kitchen.AddItem(RustyKey);
 
+            //TODO Gör så att 5-56 som finns i köket läggs ihop med rusty key som finns i sovrummet, 
+            //TODO för att skapa Shiny-key.
 
 
         }
