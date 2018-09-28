@@ -202,9 +202,15 @@ namespace GruppUppgift_3
         private void InspectItem(string[] inputArray)
         { 
             var result = from i in player1.CurrentPosition.roomItems
-                select i.Name;
+                         from j in player1.Inventory
+                         where i.Name == inputArray[1] || j.Name == inputArray[1]
+                         select i.Name;
             foreach (var i in result)
             {
+                foreach (var j in result)
+                {
+                    Console.WriteLine(j);
+                }
                 Console.WriteLine(i);
             }
         }
