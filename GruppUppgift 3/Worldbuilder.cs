@@ -34,7 +34,7 @@ namespace GruppUppgift_3
         public Room buraue = new Room("Old buraue", "Top-shelf contain items");
         public Room fridge = new Room("Fridge", " contains clue sheet");
         //Möbler sovrum
-        Room dresser = new Room("dresser", "contains golden key");
+        public Room dresser = new Room("dresser", "contains golden key");
 
 
 
@@ -67,23 +67,24 @@ namespace GruppUppgift_3
             kitchen.AddExit(Door7);
             Door Door8 = new Door(false, 8, kitchen, "fridge");
             buraue.AddExit(Door8);
-            Door Door9 = new Door(false, 9, bedRoom, "dresser");
-            kitchen.AddExit(Door9);
+            Door Door9 = new Door(false, 9, dresser, "dresser");
+            bedRoom.AddExit(Door9);
 
             //  Buraue with items (kitchen)
-            Item remote = new Item("Tv-remote", "black", "Turns on the tv");
-            Item flashlight = new Item("Flashlight", "tiny", "Turn on for light");           
+            Item remote = new Item("tv-remote", "black", "Turns on the tv");
+            Item flashlight = new Item("flashlight", "tiny", "Turn on for light");
             buraue.AddItem(remote);
             buraue.AddItem(flashlight);
 
+
             // Fridge with clue (kitchen)
             Item clueSheet = new Item("clue sheet", "check for new clues in the bathroom", "readme");
-            fridge.roomItems.Add(clueSheet);
+            fridge.AddItem(clueSheet);
 
             //Dresser with items (Bed room)
             Key GoldenKey = new Key("golden key", "Shiny", "opens chest in the oven", true);
-            dresser.roomItems.Add(GoldenKey);
-            bedRoom.roomItems.Add(GoldenKey);
+            dresser.AddItem(GoldenKey);
+            //bedRoom.roomItems.Add(GoldenKey);
 
             //Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
             //kitchen.AddItem(RustyKey);
