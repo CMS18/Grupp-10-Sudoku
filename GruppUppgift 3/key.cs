@@ -11,15 +11,15 @@ namespace GruppUppgift_3
         Item keys = new Item();
 
         public Door OpenExits { get; set; }
-        public bool OpensExits { get; set; }
+        public int Id { get; set; }
 
 
 
         public Key(string name, string description, string function,
-            bool opensExists) : base(name, description, function)
+            int id) : base(name, description, function)
         {
 
-            OpensExits = opensExists;
+            Id = id;
         }
 
     }

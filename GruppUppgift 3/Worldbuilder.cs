@@ -71,7 +71,8 @@ namespace GruppUppgift_3
             bedRoom.AddExit(Door9);
             Door door10 = new Door(false, 10, kitchen, "kitchen");
             fridge.AddExit(door10);
-
+            Door door11 = new Door(false, 11, bedRoom, "bedroom");
+            dresser.AddExit(door11);
             //  Buraue with items (kitchen)
             Item remote = new Item("tv-remote", "black", "Turns on the tv");
             Item flashlight = new Item("flashlight", "tiny", "Turn on for light");
@@ -84,7 +85,7 @@ namespace GruppUppgift_3
             fridge.AddItem(RustRemover);
 
             //Dresser with items (Bed room)
-            Key RustyKey = new Key("rusty key", "Opens nothing.. Use 5-56 on me", "Useless", false);
+            Key RustyKey = new Key("rusty key", "Opens nothing.. Use 5-56 on me", "Useless", 56);
             dresser.AddItem(RustyKey);
 
             //TODO GÖR OM, RUSTY KEY + 5-56 = SHINY KEY
@@ -197,7 +198,7 @@ namespace GruppUppgift_3
                         {
                             if (item2.Name == "rusty key")
                             {
-                                Key Shinykey = new Key("shiny key", "looks shiny", "Opens bathroom", true);
+                                Key Shinykey = new Key("shiny key", "looks shiny", "Opens bathroom", 4);
                                 player1.Inventory.Add(Shinykey);
                                 Console.WriteLine("Shiny key was added to your inventory!");
                                 player1.Inventory.Remove(item2);
@@ -208,6 +209,21 @@ namespace GruppUppgift_3
                         }
 
                         break;
+                    }
+                }
+            }
+            if (inputArray[1] == "shiny key on door")
+            {
+                if (player1.CurrentPosition == livingRoom)
+                {
+                    foreach (Door item in livingRoom.Exits)
+                    {
+                        if (item.DoorId == 4)
+                        {
+                            item.Locked = false;
+                            Console.WriteLine("Bathroom door was unlocked\n");
+                            break;
+                        }
                     }
                 }
             }
