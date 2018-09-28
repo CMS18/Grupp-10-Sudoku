@@ -118,14 +118,15 @@ namespace GruppUppgift_3
                 player1.Name = Console.ReadLine();
                 Console.Title = "Kitchen";
                 Console.WriteLine($"Hi {player1.Name}! \r\nWelcome to the Text Adventure V1.02.\n" +
-                    $"Type in \"START\" to begin your new adveture,\r\nEnjoy!");
+                    $"Type in \"START\" to begin your new adveture,\r\nEnjoy!" +
+                    $"\t\"HELP\" to enter the command menu");
                 var start = Console.ReadLine();
                 Console.WriteLine();
 
                 while (player1.Alive && start == "start")
                 {
                     //Console.Clear();
-                    Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\"HELP\" to enter the command menu");
+                    Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine();
