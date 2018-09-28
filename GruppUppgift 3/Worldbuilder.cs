@@ -163,6 +163,7 @@ namespace GruppUppgift_3
                 player1.helpMenu();
                 Console.Clear();
             }
+
             if (inputArray[0] == "go")
             {
                 MovePlayer(inputArray);
@@ -182,25 +183,27 @@ namespace GruppUppgift_3
             else if (inputArray[0] == "look")
             {
                 Console.WriteLine(player1.CurrentPosition.Description);
+            }          
+            else if (inputArray[0] == "inspect")
+            {
+                                InspectItem(inputArray);
             }
             else
             {
                 Console.WriteLine("invalid command");
             }
-            //else if (inputArray[0] == "inspect")
-            //{
-            //    InspectItem();
-            //}
             // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
         }
 
-        //private void InspectItem()
-        //{
-        //    foreach (var item in player1.Inventory)
-        //    {
-                
-        //    }
-        //}
+        private void InspectItem(string[] inputArray)
+        { 
+            var result = from i in player1.CurrentPosition.roomItems
+                select i.Name;
+            foreach (var i in result)
+            {
+                Console.WriteLine(i);
+            }
+        }
 
         private void Dropitem(string[] inputArray)
         {
