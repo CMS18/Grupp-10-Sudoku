@@ -69,6 +69,8 @@ namespace GruppUppgift_3
             kitchen.AddExit(Door8);
             Door Door9 = new Door(false, 9, dresser, "dresser");
             bedRoom.AddExit(Door9);
+            Door door10 = new Door(false, 10, kitchen, "kitchen");
+            fridge.AddExit(door10);
 
             //  Buraue with items (kitchen)
             Item remote = new Item("tv-remote", "black", "Turns on the tv");
@@ -78,17 +80,18 @@ namespace GruppUppgift_3
 
 
             // Fridge with clue (kitchen)
-            Item clueSheet = new Item("clue sheet", "check for new clues in the bedroom", "readme");
-            fridge.AddItem(clueSheet);
+            Item RustRemover = new Item("5-56", "check for new clues in the bedroom", "readme");
+            fridge.AddItem(RustRemover);
 
             //Dresser with items (Bed room)
+            Key RustyKey = new Key("rusty key", "Opens nothing.. Use 5-56 on me", "Useless", false);
+            dresser.AddItem(RustyKey);
 
             //TODO GÖR OM, RUSTY KEY + 5-56 = SHINY KEY
             //Key ShinyKey = new Key("Shiny key", "Shiny", "opens chest in the oven", true);
             //dresser.AddItem(ShinyKey);
 
-            Key RustyKey = new Key("rusty key", "Opens nothing", "Useless", false);
-            dresser.AddItem(RustyKey);
+
             //bedRoom.roomItems.Add(GoldenKey);
 
 
@@ -145,7 +148,7 @@ namespace GruppUppgift_3
                 Console.Clear();
             }
 
-            if (inputArray[0] == "go" || inputArray[0] == "open")
+            if (inputArray[0] == "go" || inputArray[0] == "open" || inputArray[0] == "exit")
             {
                 MovePlayer(inputArray);
             }
@@ -169,11 +172,21 @@ namespace GruppUppgift_3
             {
                 InspectItem(inputArray);
             }
+            else if (inputArray[0] == "merge")
+            {
+                mergeItem(inputArray);
+            }
             else
             {
                 Console.WriteLine("invalid command");
             }
             // lägg till nya iffar för nyckel ord här, och glöm inte att ändra i inputmanager oxå.
+        }
+
+        private void mergeItem(string[] inputArray)
+        {
+            //var result = from i in player1.Inventory
+            //             where o
         }
 
         private void InspectItem(string[] inputArray)
