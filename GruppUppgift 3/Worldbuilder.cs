@@ -65,8 +65,8 @@ namespace GruppUppgift_3
             //item doors eller nåt
             Door Door7 = new Door(false, 7, buraue, "buraue");
             kitchen.AddExit(Door7);
-            Door Door8 = new Door(false, 8, kitchen, "fridge");
-            buraue.AddExit(Door8);
+            Door Door8 = new Door(false, 8, fridge, "fridge");
+            kitchen.AddExit(Door8);
             Door Door9 = new Door(false, 9, dresser, "dresser");
             bedRoom.AddExit(Door9);
 
@@ -172,6 +172,7 @@ namespace GruppUppgift_3
             foreach (var item in player1.CurrentPosition.roomItems)
             {
                 Console.WriteLine(item.Name);
+                Console.WriteLine(item.Description);
             }
             //var result = from i in player1.CurrentPosition.roomItems
             //    from j in container.containerItems
