@@ -100,8 +100,9 @@ namespace GruppUppgift_3
                 Console.WriteLine("Move west: \"go west\"");
                 Console.WriteLine("Move east: \"go east\"");
                 Console.WriteLine("Move south: \"go south\"");
-                Console.WriteLine("Pick up item: \"item\" ");
-                Console.WriteLine("Drop item: \"item\" ");
+                Console.WriteLine("Pick up item: \"take + \"itemName\" ");
+                Console.WriteLine("Drop item: \"drop\" + \"itemName\" ");
+                Console.WriteLine("Use item: \"use\" + \"itemName\" ");
                 Console.WriteLine("End game: \"end\"");
                 Console.WriteLine();
                 Console.WriteLine("Exit menu: \"exit\"");
