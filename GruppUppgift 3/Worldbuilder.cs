@@ -120,7 +120,15 @@ namespace GruppUppgift_3
                 Console.WriteLine($"Hi {player1.Name}! \r\nWelcome to the Text Adventure V1.02.\n" +
                     $"Type in \"START\" to begin your new adveture,\r\nEnjoy!" +
                     $"\t\"HELP\" to enter the command menu");
-                var start = Console.ReadLine();
+                string start = "";
+                while (start != "start")
+                {
+                    start = Console.ReadLine();
+                    if (start == "help")
+                    {
+                        player1.helpMenu();
+                    }
+                }
                 Console.WriteLine();
                 
                 while (player1.Alive && start == "start")
@@ -239,7 +247,7 @@ namespace GruppUppgift_3
                     }
                 }
             }
-            if (inputArray[1] == "shiny key on door")
+            else if (inputArray[1] == "shiny key on door")
             {
                 if (player1.CurrentPosition == livingRoom)
                 {
@@ -254,16 +262,28 @@ namespace GruppUppgift_3
                     }
                 }
             }
+            else
+            {
+                Console.WriteLine("You cannot do that!");
+                Console.WriteLine();
+            }
         }
 
         private void InspectFurniture(string[] inputArray)
         {
-            foreach (var item in player1.CurrentPosition.roomItems)
+            if (player1.CurrentPosition.roomItems.Count == 0)
             {
-                Console.WriteLine(item.Name+ " " +"\t\t\t\t" + item.Description );
+                Console.WriteLine(player1.CurrentPosition.Name + " Is Empty");
             }
-           
-
+            else
+            {
+                Console.WriteLine(player1.CurrentPosition.Name + " " + "contains: ");
+                foreach (var item in player1.CurrentPosition.roomItems)
+                {
+                    Console.WriteLine(item.Name + " " + "\t\t\t\t" + item.Description);
+                }
+                Console.WriteLine();
+            }
         }
 
         private void InspectItem(string[] inputArray)
