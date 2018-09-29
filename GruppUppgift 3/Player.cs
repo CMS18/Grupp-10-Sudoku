@@ -13,6 +13,7 @@ namespace GruppUppgift_3
         public string Name { get; set; }
         public List<Item> Inventory { get; set; } = new List<Item>();
         public bool Alive { get; set; } = true;
+        public bool GottaPoo { get; set; } = true;
         public Room CurrentPosition { get; set; }
         public bool exitMenu = true;
 

@@ -139,7 +139,7 @@ namespace GruppUppgift_3
                 Console.Clear();
                 Console.WriteLine();
                 
-                while (player1.Alive && start == "start")
+                while (player1.Alive && player1.GottaPoo && start == "start")
                 {
                     //Console.Clear();
                     Console.WriteLine();
@@ -217,11 +217,11 @@ namespace GruppUppgift_3
                 Console.WriteLine("Do you want to play again? y/n");
                 string playAgain = Console.ReadLine().ToLower();
                 if (playAgain == "y")
-                { NewGame(true); }
+                { NewGame(); }
 
                 if (playAgain == "n")
                 {
-                    NewGame(false);
+                    player1.GottaPoo = false;
                 }
 
 
