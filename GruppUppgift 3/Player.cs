@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -100,6 +101,9 @@ namespace GruppUppgift_3
                 Console.WriteLine("Move west: \"go west\"");
                 Console.WriteLine("Move east: \"go east\"");
                 Console.WriteLine("Move south: \"go south\"");
+                Console.WriteLine("Inspect: \"Inspect\"");
+                Console.WriteLine("Open furniture: \"open\"");
+                Console.WriteLine("Merge items: use \"item\" on \"item\"");
                 Console.WriteLine("Pick up item: \"take + \"itemName\" ");
                 Console.WriteLine("Drop item: \"drop\" + \"itemName\" ");
                 Console.WriteLine("Use item: \"use\" + \"itemName\" ");
@@ -112,7 +116,7 @@ namespace GruppUppgift_3
                     exitMenu = false;
                 }
             }
-
+        
         }
     }
 }

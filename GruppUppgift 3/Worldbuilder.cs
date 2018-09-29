@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +11,7 @@ namespace GruppUppgift_3
 {
     public class Worldbuilder
     {
+
         public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
         public Room kitchen = new Room("Kitchen",
@@ -34,13 +37,14 @@ namespace GruppUppgift_3
         public Room fridge = new Room("Fridge", "Type: \"Inspect\"");
         //Möbler sovrum
         public Room dresser = new Room("dresser", "Type: \"Inspect\"");
-
+        //möbler badrum
+        public Room toilet = new Room("Toilet", "Golden, dressed in leather");
 
 
 
         public Worldbuilder(string name)
         {
-
+            
             Name = name;
 
             player1.ChangePosition(kitchen);
@@ -100,8 +104,7 @@ namespace GruppUppgift_3
 
         }
 
-
-        public void NewGame()
+        public void NewGame(bool newgame = true)
         {
             {
                 Console.WriteLine("-------------------------------------------------");
@@ -119,7 +122,7 @@ namespace GruppUppgift_3
                     $"\t\"HELP\" to enter the command menu");
                 var start = Console.ReadLine();
                 Console.WriteLine();
-
+                
                 while (player1.Alive && start == "start")
                 {
                     //Console.Clear();
@@ -151,6 +154,10 @@ namespace GruppUppgift_3
             {
                 MovePlayer(inputArray);
             }
+            else if (inputArray[0] == "sit")
+            {
+                SitToWin(inputArray);
+            }
             else if (inputArray[0] == "take")
             {
                 TakeItem(inputArray);
@@ -178,6 +185,30 @@ namespace GruppUppgift_3
             else
             {
                 Console.WriteLine("invalid command");
+            }
+        }
+
+        private void SitToWin(string[] inputArray)
+        {
+            if (inputArray[1] == "on toilet")
+            {
+                Console.Beep(2000, 200);
+                Console.Beep(1000, 200);
+                Console.Beep(500, 200);
+                Console.WriteLine("Victory!");
+                Console.ReadLine();
+                Authors.WhileVictoryEqualsTrue();
+                Console.WriteLine("Do you want to play again? y/n");
+                string playAgain = Console.ReadLine().ToLower();
+                if (playAgain == "y")
+                { NewGame(true); }
+
+                if (playAgain == "n")
+                {
+                    NewGame(false);
+                }
+
+
             }
         }
 
