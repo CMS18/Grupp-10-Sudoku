@@ -30,10 +30,10 @@ namespace GruppUppgift_3
         public Room bathRoom = new Room("Bath room",
             "To the north there is a toilet dressed in leather");
         //MÖBLER Kök
-        public Room bureau = new Room("Old bureau", "Top-shelf contain items");
-        public Room fridge = new Room("Fridge", " contains 5-56");
+        public Room bureau = new Room("Old bureau", "Type: \"Inspect\"");
+        public Room fridge = new Room("Fridge", "Type: \"Inspect\"");
         //Möbler sovrum
-        public Room dresser = new Room("dresser", "Contains rusty key");
+        public Room dresser = new Room("dresser", "Type: \"Inspect\"");
 
 
 
@@ -72,6 +72,9 @@ namespace GruppUppgift_3
             fridge.AddExit(door10);
             Door door11 = new Door(false, 11, bedRoom, "bedroom");
             dresser.AddExit(door11);
+            Door door12 = new Door(false, 12, kitchen, "kitchen");
+            bureau.AddExit(door12);
+            
             //  Buraue with items (kitchen)
             Item remote = new Item("tv-remote", "black", "Turns on the tv");
             Item flashlight = new Item("flashlight", "tiny", "Turn on for light");
@@ -87,16 +90,12 @@ namespace GruppUppgift_3
             Key RustyKey = new Key("rusty key", "Opens nothing.. Use 5-56 on me", "Useless", 56);
             dresser.AddItem(RustyKey);
 
-            //TODO GÖR OM, RUSTY KEY + 5-56 = SHINY KEY
-            //Key ShinyKey = new Key("Shiny key", "Shiny", "opens chest in the oven", true);
-            //dresser.AddItem(ShinyKey);
+
 
 
             //bedRoom.roomItems.Add(GoldenKey);
 
 
-            //TODO Gör så att 5-56 som finns i köket läggs ihop med rusty key som finns i sovrummet, 
-            //TODO för att skapa Shiny-key.
 
 
         }
@@ -124,6 +123,7 @@ namespace GruppUppgift_3
                 while (player1.Alive && start == "start")
                 {
                     //Console.Clear();
+                    Console.WriteLine();
                     Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
@@ -169,7 +169,7 @@ namespace GruppUppgift_3
             }
             else if (inputArray[0] == "inspect")
             {
-                InspectItem(inputArray);
+                InspectFurniture(inputArray);
             }
             else if (inputArray[0] == "use")
             {
@@ -225,16 +225,24 @@ namespace GruppUppgift_3
             }
         }
 
+        private void InspectFurniture(string[] inputArray)
+        {
+            foreach (var item in player1.CurrentPosition.roomItems)
+            {
+                Console.WriteLine(item.Name+ " " +"\t\t\t\t" + item.Description );
+            }
+           
+
+        }
+
         private void InspectItem(string[] inputArray)
         {
             foreach (var item in player1.CurrentPosition.roomItems)
             {
-                Console.WriteLine(item.Name);
                 Console.WriteLine(item.Description);
             }
-
         }
-
+             
         private void Dropitem(string[] inputArray)
         {
             bool success = false;
@@ -246,6 +254,7 @@ namespace GruppUppgift_3
                     player1.Inventory.Remove(item);
                     Console.WriteLine("YOU THREW THE " + item.Name + " ON THE GROUND!");
                     success = true;
+                
                     break;
                 }
             }
@@ -281,6 +290,7 @@ namespace GruppUppgift_3
                     player1.CurrentPosition.roomItems.Remove(item);
                     Console.WriteLine(item.Name + " was added to your inventory.");
                     SuccesfullItemPickup = true;
+                    
                     break;
                 }
 
