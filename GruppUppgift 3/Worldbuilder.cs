@@ -16,20 +16,20 @@ namespace GruppUppgift_3
         public string Name { get; set; }
         public Room kitchen = new Room("Kitchen",
             "The flooring is white marble, to the east of you there is a fridge" +
-            "to the left,\n there is an old bureau, the top shelf is open \n" +
+            "to the left,\nthere is an old bureau, the top shelf is open \n" +
             "to the north, there is a vintage-looking magahony door.");
 
         public Room livingRoom = new Room("Living room",
                "It is dark and freezing cold, " +
-               " you are standing on a rug, it feels like the cold comes from below the rug.\n" +
-               " To the north of you there is a couch, a tv and a painting,\n" +
+               "you are standing on a rug, it feels like the cold comes from below the rug.\n" +
+               "To the north of you there is a couch, a tv and a painting,\n" +
                "to the east there is a door, its slightly open.\n" +
                "To the west there is another door, it is closed, possibly locked.");
 
         public Room bedRoom = new Room("Bed room",
             "The floor is carpeted in a maroon-red color,\n to the north of you there is a bed," +
             "to the east there is dresser,\n " +
-            " to the west there is a painting of some old women in a rocking chair");
+            "to the west there is a painting of some old women in a rocking chair");
         public Room bathRoom = new Room("Bath room",
             "To the north there is a toilet dressed in leather");
         //MÖBLER Kök
