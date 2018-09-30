@@ -119,6 +119,7 @@ namespace Sudoko_18_09_19
             PrintBoard(Sudoku);
             Console.WriteLine();
             SolveNumbers(Sudoku);
+            Console.WriteLine("finns ingen lösning :I");
 
         }
         private bool SolveNumbers(int[,] Board)
@@ -134,7 +135,7 @@ namespace Sudoko_18_09_19
                             var PossibleNumbers = FindPossibleNumbers(row, col, Board);
                             if (PossibleNumbers.Count == i)
                             {
-                                return GuessNumbers(row, col, PossibleNumbers, Board);
+                                return GuessNumbers(row, col, PossibleNumbers, Board);                               
                             }
                         }
                     }

@@ -31,7 +31,7 @@ namespace Sudoko_18_09_19
 
             Sudoku2 unsolveble = new Sudoku2("090300001000080046000000800405060030003275600060010904001000000580020000200007060");
 
-            MediumGame.Solve();
+            Diabolical.Solve();
             
 
         }
