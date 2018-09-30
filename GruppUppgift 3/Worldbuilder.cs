@@ -14,6 +14,8 @@ namespace GruppUppgift_3
 
         public Player player1 { get; set; } = new Player();
         public string Name { get; set; }
+
+        // Skapar rummen
         public Room kitchen = new Room("Kitchen",
             "The flooring is white marble, to the east of you there is a fridge" +
             "to the left,\nthere is an old bureau, the top shelf is open \n" +
@@ -32,12 +34,12 @@ namespace GruppUppgift_3
             "to the west there is a painting of some old women in a rocking chair");
         public Room bathRoom = new Room("Bath room",
             "To the north there is a toilet dressed in leather");
-        //MÖBLER Kök
+        //Möbler Kök
         public Room bureau = new Room("Old bureau", "Type: \"Inspect\"");
         public Room fridge = new Room("Fridge", "Type: \"Inspect\"");
         //Möbler sovrum
         public Room dresser = new Room("dresser", "Type: \"Inspect\"");
-        //möbler badrum
+        //Möbler badrum
         public Room toilet = new Room("Toilet", "Golden, dressed in leather");
 
 
@@ -46,7 +48,7 @@ namespace GruppUppgift_3
         {
             
             Name = name;
-
+            // alla dörrar
             player1.ChangePosition(kitchen);
             //kitchendoors
             Door Door1 = new Door(false, 1, livingRoom, "north");                                                           //exits läggs till i rummen
@@ -65,7 +67,7 @@ namespace GruppUppgift_3
             Door Door6 = new Door(false, 6, livingRoom, "east");
             bathRoom.AddExit(Door6);
 
-            //item doors eller nåt
+            //"furniture doors" eller nåt
             Door Door7 = new Door(false, 7, bureau, "bureau");
             kitchen.AddExit(Door7);
             Door Door8 = new Door(false, 8, fridge, "fridge");
@@ -101,19 +103,12 @@ namespace GruppUppgift_3
             Key RustyKey = new Key("rusty key", "Opens nothing.. Use 5-56 on me", "Useless", 56);
             dresser.AddItem(RustyKey);
 
-
-
-
-            //bedRoom.roomItems.Add(GoldenKey);
-
-
-
-
         }
-
+                 
         public void NewGame(bool newgame = true)
         {
             {
+                // start meny
                 Console.WriteLine("-------------------------------------------------");
                 Console.WriteLine("|" + "\t\t\t\t\t\t|");
                 Console.WriteLine("|" + "\t*WELCOME TO THE TEXT ADVENTURE*" + "\t\t|");
@@ -138,7 +133,7 @@ namespace GruppUppgift_3
                 }
                 Console.Clear();
                 Console.WriteLine();
-                
+                // spelet börjar
                 while (player1.Alive && player1.GottaPoo && start == "start")
                 {
                     //Console.Clear();
@@ -155,7 +150,7 @@ namespace GruppUppgift_3
 
             }
         }
-
+        // Kommandon
         private void DoStuff(string[] inputArray)
         {
 
@@ -209,7 +204,7 @@ namespace GruppUppgift_3
                 Console.WriteLine("invalid command");
             }
         }
-
+        //Metoder
         private void SitToWin(string[] inputArray)
         {
             if (inputArray[1] == "on toilet")
