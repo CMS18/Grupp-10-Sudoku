@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Sudoko_18_09_19
 {
@@ -12,6 +13,7 @@ namespace Sudoko_18_09_19
 
         public Sudoku2 (String Numbers)
         {
+            Numbers = Regex.Replace(Numbers, "[^1-9]", "0");
             int stringposition = 0;
             for (int row = 0; row < 9; row++)
             {
