@@ -16,6 +16,7 @@ namespace GruppUppgift_3
         public bool GottaPoo { get; set; } = true;
         public Room CurrentPosition { get; set; }
         public bool exitMenu = true;
+        public bool exitCheat = true;
 
         public void ChangePosition(Room NewRoom)
         {
@@ -109,6 +110,7 @@ namespace GruppUppgift_3
                 Console.WriteLine("Drop item: \"drop\" + \"itemName\" ");
                 Console.WriteLine("Use item: \"use\" + \"itemName\" ");
                 Console.WriteLine("End game: \"end\"");
+                Console.WriteLine("Use cheat: \"cheat\"");
                 Console.WriteLine("***");
                 Console.WriteLine("Exit menu: \"exit\"");
                 var svar = Console.ReadLine();
@@ -118,6 +120,34 @@ namespace GruppUppgift_3
                 }
             }
         
+        }
+
+        public void cheatMenu()
+        {
+            while (exitCheat)
+            {
+                Console.WriteLine("1)\tOpen fridge,\n" +
+                                  "2)\ttake 5-56,\n" +
+                                  "3)\tclose fridge,\n" +
+                                  "4)\tgo north,\n" +
+                                  "5)\tgo east,\n" +
+                                  "6)\topen dresser,\n" +
+                                  "7)\ttake rusty key,\n" +
+                                  "8)\tuse 5-56 on rusty key,\n" +
+                                  "9)\tclose dresser,\n" +
+                                  "10)\tgo west,\n" +
+                                  "11)\tuse shiny key on door,\n" +
+                                  "12)\tgo west,\n" +
+                                  "13)\tsit on toilet\n");
+
+                Console.WriteLine("Exit menu: \"exit\"");
+                var svar = Console.ReadLine();
+                if (svar == "exit")
+                {
+                    exitCheat = false;
+                }
+                
+            }
         }
     }
 }

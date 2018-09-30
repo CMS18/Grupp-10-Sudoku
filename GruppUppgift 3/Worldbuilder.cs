@@ -125,8 +125,8 @@ namespace GruppUppgift_3
                 player1.Name = Console.ReadLine();
                 Console.Title = "Kitchen";
                 Console.WriteLine($"Hi {player1.Name}! \r\nWelcome to the Text Adventure V1.02.\n" +
-                    $"Type in \"START\" to begin your new adveture,\r\nEnjoy!" +
-                    $"\t\"HELP\" to enter the command menu");
+                    $"Type in \"START\" to begin your new adventure,\r\nEnjoy!"
+                    );
                 string start = "";
                 while (start != "start")
                 {
@@ -143,7 +143,7 @@ namespace GruppUppgift_3
                 {
                     //Console.Clear();
                     Console.WriteLine();
-                    Console.WriteLine(player1.CurrentPosition.Name);
+                    Console.WriteLine(player1.CurrentPosition.Name +"\t\t\t\t\t\t\t\t\t" + "\"HELP\" to enter the command menu");
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine();
@@ -163,6 +163,12 @@ namespace GruppUppgift_3
             {
                 Console.Clear();
                 player1.helpMenu();
+                Console.Clear();
+            }
+
+            else if (inputArray[0] == "cheat")
+            {
+                player1.cheatMenu();
                 Console.Clear();
             }
 
@@ -264,6 +270,7 @@ namespace GruppUppgift_3
                         if (item.DoorId == 4)
                         {
                             item.Locked = false;
+                            Console.WriteLine();
                             Console.WriteLine("Bathroom door was unlocked\n");
                             break;
                         }
@@ -285,7 +292,7 @@ namespace GruppUppgift_3
             }
             else
             {
-                Console.WriteLine(player1.CurrentPosition.Name + " " + "contains: ");
+                Console.WriteLine("\n" +player1.CurrentPosition.Name + " " + "contains: ");
                 foreach (var item in player1.CurrentPosition.roomItems)
                 {
                     Console.WriteLine(item.Name + " " + "\t\t\t\t" + item.Description);
@@ -347,6 +354,7 @@ namespace GruppUppgift_3
                 {
                     player1.Inventory.Add(item);
                     player1.CurrentPosition.roomItems.Remove(item);
+                    Console.WriteLine();
                     Console.WriteLine(item.Name + " was added to your inventory.");
                     SuccesfullItemPickup = true;
                     
@@ -372,6 +380,7 @@ namespace GruppUppgift_3
                 }
                 else if (item.Position == input && item.Locked == true)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("The door is locked");
                     room = null;
                     return false;
