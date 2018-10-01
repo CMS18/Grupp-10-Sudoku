@@ -17,7 +17,7 @@ namespace GruppUppgift_3
 
         // Skapar rummen
         public Room kitchen = new Room("Kitchen",
-            "The flooring is white marble, to the east of you there is a fridge" +
+            "The flooring is white marble, to the east of you there is a fridge " +
             "to the left,\nthere is an old bureau, the top shelf is open \n" +
             "to the north, there is a vintage-looking magahony door.");
 
@@ -46,7 +46,7 @@ namespace GruppUppgift_3
 
         public Worldbuilder(string name)
         {
-            
+
             Name = name;
             // alla dörrar
             player1.ChangePosition(kitchen);
@@ -86,8 +86,8 @@ namespace GruppUppgift_3
             Door door14 = new Door(false, 14, bedRoom, "dresser");
             dresser.AddExit(door14);
 
-            
-            
+
+
             //  Buraue with items (kitchen)
             Item remote = new Item("tv-remote", "black", "Turns on the tv");
             Item flashlight = new Item("flashlight", "tiny", "Turn on for light");
@@ -104,7 +104,7 @@ namespace GruppUppgift_3
             dresser.AddItem(RustyKey);
 
         }
-                 
+
         public void NewGame(bool newgame = true)
         {
             {
@@ -138,7 +138,9 @@ namespace GruppUppgift_3
                 {
                     //Console.Clear();
                     Console.WriteLine();
-                    Console.WriteLine(player1.CurrentPosition.Name +"\t\t\t\t\t\t\t\t\t" + "\"HELP\" to enter the command menu");
+                    //Console.WriteLine(player1.CurrentPosition.Name + "\t\t\t\t\t\t\t\t\t" + "\"HELP\" to enter the command menu"); tidigare C.WL
+                    Console.WriteLine("***");
+                    Console.WriteLine(player1.CurrentPosition.Name);
                     Console.WriteLine("***");
                     Console.WriteLine(player1.CurrentPosition.Description);
                     Console.WriteLine();
@@ -212,6 +214,11 @@ namespace GruppUppgift_3
                 Console.Beep(2000, 200);
                 Console.Beep(1000, 200);
                 Console.Beep(500, 200);
+                Console.WriteLine("-------------------------------------------------");
+                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                Console.WriteLine("|" + "\t\t***VICTORY!***" + "\t\t\t|");
+                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                Console.WriteLine("-------------------------------------------------");
                 Console.WriteLine("Victory!");
                 Console.ReadLine();
                 Authors.WhileVictoryEqualsTrue();
@@ -235,7 +242,7 @@ namespace GruppUppgift_3
             {
                 foreach (var item in player1.Inventory)
                 {
-               
+
                     if (item.Name == "5-56")
                     {
                         foreach (var item2 in player1.Inventory)
@@ -244,6 +251,11 @@ namespace GruppUppgift_3
                             {
                                 Key Shinykey = new Key("shiny key", "looks shiny", "Opens bathroom", 4);
                                 player1.Inventory.Add(Shinykey);
+                                Console.WriteLine("-------------------------------------------------");
+                                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                                Console.WriteLine("|" + " Shiny key has been added to your inventory!" + "\t|");
+                                Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                                Console.WriteLine("-------------------------------------------------");
                                 Console.WriteLine("Shiny key was added to your inventory!");
                                 player1.Inventory.Remove(item2);
                                 dresser.Description = "Empty";
@@ -266,6 +278,11 @@ namespace GruppUppgift_3
                         {
                             item.Locked = false;
                             Console.WriteLine();
+                            Console.WriteLine("-------------------------------------------------");
+                            Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                            Console.WriteLine("|\t" + "Bathroom door has been unlocked!" + "\t|");
+                            Console.WriteLine("|" + "\t\t\t\t\t\t|");
+                            Console.WriteLine("-------------------------------------------------");
                             Console.WriteLine("Bathroom door was unlocked\n");
                             break;
                         }
@@ -287,7 +304,7 @@ namespace GruppUppgift_3
             }
             else
             {
-                Console.WriteLine("\n" +player1.CurrentPosition.Name + " " + "contains: ");
+                Console.WriteLine("\n" + player1.CurrentPosition.Name + " " + "contains: ");
                 foreach (var item in player1.CurrentPosition.roomItems)
                 {
                     Console.WriteLine(item.Name + " " + "\t\t\t\t" + item.Description);
@@ -303,7 +320,7 @@ namespace GruppUppgift_3
                 Console.WriteLine(item.Description);
             }
         }
-             
+
         private void Dropitem(string[] inputArray)
         {
             bool success = false;
@@ -315,7 +332,7 @@ namespace GruppUppgift_3
                     player1.Inventory.Remove(item);
                     Console.WriteLine("YOU THREW THE " + item.Name + " ON THE GROUND!");
                     success = true;
-                
+
                     break;
                 }
             }
@@ -350,9 +367,13 @@ namespace GruppUppgift_3
                     player1.Inventory.Add(item);
                     player1.CurrentPosition.roomItems.Remove(item);
                     Console.WriteLine();
-                    Console.WriteLine(item.Name + " was added to your inventory.");
+                    Console.WriteLine("----------------------------------------------------------------------");
+                    Console.WriteLine();
+                    Console.WriteLine("\t\t" + item.Name + " has been added to your inventory!");
+                    Console.WriteLine();
+                    Console.WriteLine("----------------------------------------------------------------------");
                     SuccesfullItemPickup = true;
-                    
+
                     break;
                 }
 

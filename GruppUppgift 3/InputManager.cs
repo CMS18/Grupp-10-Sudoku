@@ -42,6 +42,8 @@ namespace GruppUppgift_3
             
         }
 
+       
+        
         //public static string ArrayToString(string[] inputarray)
         //{
         //    string input = "";
@@ -51,7 +53,7 @@ namespace GruppUppgift_3
         //    }
         //    return input;
         //}
-
+        //yikes
         //private static string CheckForGoCommands(string[] inputarray)
         //{
         //    var output = "";
